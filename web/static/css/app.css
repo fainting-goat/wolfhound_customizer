@@ -1,0 +1,539 @@
+/* This file is for your main application css. */
+
+label > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+    cursor:pointer;
+    border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+    border:2px solid #ff0099;
+}
+
+.expandable {
+    display:none;
+}
+
+.expanded {
+    display: inline-block;
+    background-color: #92A4BF;
+    padding: 4px 11px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.expand {
+    display: inline-block;
+    background-color: #92A4BF;
+    padding: 4px 11px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.flavorButton {
+    display: inline-block;
+    background-color: #92A4BF;
+    padding: 4px 11px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#repeating_command_block_back {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#repeating_command_block_conditional {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#repeating_command_block_front {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#repeating_command_block_side {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_back {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_conditional {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_front {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_side {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_back {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_conditional {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_front {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_side {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#water_flow {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#water_overlay {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#water_still {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#lava_flow {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#lava_still {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#fire_layer_0 {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#fire_layer_1 {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#magma {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#portal {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#prismarine_rough {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#paintings_kristoffer_zetterstrand {
+    width: 500px;
+    height: 500px;
+}
+
+#paintings_kristoffer_zetterstrand > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#banner_base {
+    width: 200px;
+    height: 200px;
+}
+
+#banner_base > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#iron_golem {
+    width: 300px;
+    height: 300px;
+}
+
+#iron_golem > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_bear_polarbear {
+    width: 320px;
+    height: 320px;
+}
+
+#subcat_bear_polarbear > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_boat_boat_acacia {
+    width: 200px;
+    height: 200px;
+}
+
+#subcat_boat_boat_acacia > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_boat_boat_birch {
+    width: 200px;
+    height: 200px;
+}
+
+#subcat_boat_boat_birch > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_boat_boat_darkoak {
+    width: 200px;
+    height: 200px;
+}
+
+#subcat_boat_boat_darkoak > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_boat_boat_jungle {
+    width: 200px;
+    height: 200px;
+}
+
+#subcat_boat_boat_jungle > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_boat_boat_oak {
+    width: 200px;
+    height: 200px;
+}
+
+#subcat_boat_boat_oak > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_boat_boat_spruce {
+    width: 200px;
+    height: 200px;
+}
+
+#subcat_boat_boat_spruce > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_chest_normal_double {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_chest_normal_double > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_chest_trapped_double {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_chest_trapped_double > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_endercrystal_endercrystal {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_endercrystal_endercrystal > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_donkey {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_donkey > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_black {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_black > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_brown {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_brown > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_chestnut {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_chestnut > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_creamy {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_creamy > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_darkbrown {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_darkbrown > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_gray {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_gray > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_skeleton {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_skeleton > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_horse_white {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_horse_white > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#subcat_horse_mule {
+    width: 300px;
+    height: 300px;
+}
+
+#subcat_horse_mule > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#foliage {
+    width: 100px;
+    height: 100px;
+}
+
+#foliage > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#grass {
+    width: 100px;
+    height: 100px;
+}
+
+#grass > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#clouds {
+    width: 100px;
+    height: 100px;
+}
+
+#clouds > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#moon_phases {
+    width: 200px;
+    height: 200px;
+}
+
+#moon_phases > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sun {
+    width: 200px;
+    height: 200px;
+}
+
+#sun > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#rain {
+    width: 100px;
+    height: 100px;
+}
+
+#rain > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#expanded_gui_div label {
+    width: 300px;
+    height: 300px;
+}
+
+#expanded_gui_div img {
+    max-width: 100%;
+    height: auto;
+}

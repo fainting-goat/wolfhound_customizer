@@ -1,0 +1,22 @@
+<div id="expanded_<%= @category %>_div" data-toggle="collapse" data-target="#<%= @category %>_div" class aria-expanded="true"><div class="expanded"><%= proper_punctuation(@category) %></div>
+  <div id="<%= @category %>_div" class="collapse in">
+    <%= for {item, files} <- get_images(@category)  do %>
+      <div>
+        <%= proper_punctuation(item) %>
+        <div>
+          <%= for file <- files do %>
+            <label id="<%= item %>">
+              <%= if default_selected(file) do %>
+                <%= radio_button @f, String.to_atom(item), "#{@category}/#{item}/#{file}", checked: "checked" %>
+              <%= else %>
+                <%= radio_button @f, String.to_atom(item), "#{@category}/#{item}/#{file}" %>
+              <% end %>
+
+              <img src="<%= static_path(@conn, "/images/#{@category}/#{item}/#{file}") %>">
+            </label>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
