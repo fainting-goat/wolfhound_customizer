@@ -5,6 +5,10 @@
   <p>And if you're wanting to report a problem, please screenshot what went wrong (especially if there's an error message on the screen) and let me know what browser you're using.  That'll help a lot.  Thanks!</p>
   </div>
 
+  <hr>
+
+  <h2>Variants</h2>
+  Click on a button to set all the textures to one variation.
   <div><label id="default" class="flavorButton">Default</label>
   <label id="asian" class="flavorButton">Asian</label>
   <label id="heavenly" class="flavorButton">Heavenly</label>
@@ -15,6 +19,8 @@
   <label id="winter" class="flavorButton">Winter</label>
   <label id="fall" class="flavorButton">Fall</label>
   <label id="summer" class="flavorButton">Summer</label>
+
+  <hr>
 
   <%= form_for @changeset, item_path(@conn, :create), fn f -> %>
         <%= for category <- @categories do %>

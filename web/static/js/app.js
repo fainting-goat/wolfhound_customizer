@@ -28,12 +28,6 @@ import socket from "./socket"
 global.jQuery = require("jquery")
 global.bootstrap = require("bootstrap")
 
-// $('.expand').click(function(){
-//     let target_num = $(this).attr('id').split('_')[1];
-//     let content_id = '#expandable_'.concat(target_num);
-//     $(content_id).slideToggle('fast');
-// });
-
 $('.flavorButton').click(function () {
     let flavor = this.id;
     $("input[type=radio]").each(function () {

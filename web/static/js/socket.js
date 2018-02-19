@@ -9,17 +9,16 @@ let itemChannel = socket.channel("item", {})
 let expand = $(".expand")
 
 expand.one( "click", function() {
-        let clickedDiv = $("#" + event.target.id)
+        let clickedDiv = $(".expand#" + event.target.id)
         if (clickedDiv.hasClass("expand")) {
-            clickedDiv.removeClass("expand")
             itemChannel.push('images', {category: event.target.id})
         }
 })
 
 itemChannel.on('item_response', payload => {
-    let currentCategory = $("#" + payload.category)
+    let currentCategory = $(".expand#" + payload.category)
     currentCategory.empty()
-    currentCategory.append(payload.html)
+    currentCategory.replaceWith(payload.html)
 })
 
 itemChannel.join()

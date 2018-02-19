@@ -52,7 +52,7 @@ defmodule Customizer.ItemController do
     |> Enum.each(
          fn (x) ->
            [path, name, _] = String.split(x, "/")
-           move_file_to_temp(x, directory, path, name)
+           move_file_to_temp(x, directory, FileManager.valid_path(path), FileManager.valid_name(name))
          end
        )
 
@@ -88,7 +88,7 @@ defmodule Customizer.ItemController do
     :zip.create(String.to_charlist("#{directory}.zip"), files, [cwd: path])
   end
 
-  defp move_file_to_temp(source, directory, path, name) do
+  defp move_file_to_temp(source, directory, {:ok, path}, {:ok, name}) do
     [prefix: prefix] = Application.get_env(:customizer, :setup)
 
     %{subcat: subcat_path, item: item} = build_subcat(name)
@@ -100,6 +100,10 @@ defmodule Customizer.ItemController do
     #we need the mcmeta file for the resourcepack to work
     File.cp("#{prefix}/pack.mcmeta", "./temporary/#{directory}/pack.mcmeta")
   end
+
+  defp move_file_to_temp(source, directory, {:ok, _}, {:error, _}), do: {:ok}
+  defp move_file_to_temp(source, directory, {:error, _}, {:ok, _}), do: {:ok}
+  defp move_file_to_temp(source, directory, {:error, _}, {:error, _}), do: {:ok}
 
   defp copy_blockstates(directory) do
     [prefix: prefix] = Application.get_env(:customizer, :setup)

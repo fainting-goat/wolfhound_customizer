@@ -20,17 +20,27 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     display: inline-block;
     background-color: #92A4BF;
     padding: 4px 11px;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
+    width: 100%
 }
 
 .expand {
     display: inline-block;
     background-color: #92A4BF;
     padding: 4px 11px;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
+    width: 100%
 }
+
+.subcat {
+    display: inline-block;
+    background-color: #B2BDCC;
+    padding: 4px 11px;
+    font-size: 16px;
+}
+
 
 .flavorButton {
     display: inline-block;
