@@ -24,9 +24,9 @@ config :customizer, :setup,
      prefix: "./lib/customizer-0.0.1/priv/static/"
 
 config :customizer, Customizer.Endpoint,
-    http: [port: {:system, "PORT"}],
-    url: [host: "wolfhoundcustomizer.com", port: {:system, "PORT"}], # This is critical for ensuring web-sockets properly authorize.
-    cache_static_manifest: "priv/static/manifest.json",
+    http: [port: 80],
+    url: [host: "wolfhoundcustomizer.com", port: 80], # This is critical for ensuring web-sockets properly authorize.
+    cache_static_manifest: "priv/static/cache_manifest.json",
     server: true,
     root: ".",
     version: Mix.Project.config[:version]

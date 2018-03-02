@@ -9,9 +9,9 @@
         <%= for file <- files do %>
           <label id="<%= item %>">
             <%= if default_selected(file) do %>
-              <%= radio_button @f, String.to_atom(item), "#{@category}/#{item}/#{file}", checked: "checked" %>
+              <%= radio_button @f, String.to_atom("#{@category}_#{item}"), "#{@category}/#{item}/#{file}", checked: "checked" %>
             <%= else %>
-              <%= radio_button @f, String.to_atom(item), "#{@category}/#{item}/#{file}" %>
+              <%= radio_button @f, String.to_atom("#{@category}_#{item}"), "#{@category}/#{item}/#{file}" %>
             <% end %>
 
             <img src="<%= static_path(@conn, "/images/#{@category}/#{item}/#{file}") %>">

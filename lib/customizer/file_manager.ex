@@ -29,12 +29,8 @@ def init(state) do
     GenServer.call(:file_manager, :file_list)
   end
 
-  def valid_path(path) do
-    GenServer.call(:file_manager, {:valid_path, path})
-  end
-
-  def valid_name(name) do
-    GenServer.call(:file_manager, {:valid_name, name})
+  def valid_params(params) do
+    GenServer.call(:file_manager, {:valid_params, params})
   end
 
   #CALLBACKS
@@ -51,25 +47,27 @@ def init(state) do
     {:reply, state.filenames, state}
   end
 
-  def handle_call({:valid_path, path}, _from, state) do
-    result = case Enum.member?(state.categories, path) do
-      true -> {:ok, path}
-      _ -> {:error, "invalid path"}
-    end
+  def handle_call({:valid_params, params}, _from, state) do
+    [path, name, _] = String.split(params, "/")
 
-    {:reply, result, state}
-  end
-
-  def handle_call({:valid_name, name}, _from, state) do
-    result = case Map.has_key?(state.default, name) do
-      true -> {:ok, name}
-      _ -> {:error, "invalid filename"}
-    end
-
-    {:reply, result, state}
+    {:reply, {valid_path(path, state.categories), valid_name(name, path, state.default)}, state}
   end
 
   #HELPERS
+
+  def valid_path(path, categories) do
+    case Enum.member?(categories, path) do
+      true -> path
+      _ -> {:error, "invalid path"}
+    end
+  end
+
+  def valid_name(name, path, default) do
+    case Map.has_key?(default, "#{path}_#{name}") do
+      true -> name
+      _ -> {:error, "invalid filename"}
+    end
+  end
 
   defp build_default_list(prefix) do
     categories = File.ls("#{prefix}images/")
@@ -84,7 +82,7 @@ def init(state) do
                    images = elem(File.ls("#{prefix}images/#{category}/"), 1)
                             |> remove_system_files
                    result = images
-                            |> Enum.reduce(%{}, fn (x, accum) -> Map.put(accum, x, "#{category}/#{x}/default.png") end)
+                            |> Enum.reduce(%{}, fn (x, accum) -> Map.put(accum, "#{category}_#{x}", "#{category}/#{x}/default.png") end)
                    Map.merge(accum, result)
                  end
                )
