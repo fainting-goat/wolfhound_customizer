@@ -4,7 +4,7 @@ defmodule Customizer.Mixfile do
   def project do
     [app: :customizer,
      version: "0.0.1",
-     elixir: "~> 1.4",
+     elixir: "~> 1.6.3",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -38,7 +38,8 @@ defmodule Customizer.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:distillery, "~> 1.4"}]
+     {:distillery, "~> 1.4"},
+     { :uuid, "~> 1.1" }]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

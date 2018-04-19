@@ -2,6 +2,7 @@ defmodule Customizer.ItemController do
   use Customizer.Web, :controller
   alias Customizer.Item
   alias Customizer.FileManager
+  alias Customizer.ZipBuilder
 
   @full_path "assets/minecraft/textures"
 
@@ -15,10 +16,10 @@ defmodule Customizer.ItemController do
     full_list = Map.merge(FileManager.default_list, item_params)
     complete_list = update_clock_files(item_params, full_list)
 
-    {:ok, temp_dir} = create_temp_directory(complete_list)
-    {:ok, zip} = create_zip(temp_dir)
+    {:ok, temp_dir} = ZipBuilder.create_temp_directory(complete_list)
+    {:ok, zip} = ZipBuilder.create_zip(temp_dir)
 
-    delete_temp_dir(temp_dir)
+    ZipBuilder.delete_temp_dir(temp_dir)
 
     conn
     |> put_resp_header("content-disposition", ~s(attachment; filename="#{to_string(zip)}"))
@@ -34,100 +35,6 @@ defmodule Customizer.ItemController do
 
   def create(conn) do
     render("index.html")
-  end
-
-  defp delete_temp_dir(directory) do
-    File.rm_rf("./temporary/#{directory}")
-  end
-
-  defp create_temp_directory(items) do
-    directory = "Wolfhound_#{:rand.uniform(1000)}"
-    File.mkdir("./temporary/#{directory}")
-    File.mkdir("./temporary/#{directory}/assets")
-    File.mkdir("./temporary/#{directory}/assets/minecraft")
-    File.mkdir("./temporary/#{directory}/assets/minecraft/textures")
-
-    items
-    |> Map.values
-    |> Enum.each(
-         fn (x) ->
-           [path, name, _] = String.split(x, "/")
-#           move_file_to_temp(x, directory, FileManager.valid_path(path), FileManager.valid_name(name))
-           move_file_to_temp(x, directory, FileManager.valid_params(x))
-         end
-       )
-
-    copy_blockstates(directory)
-    copy_mcmeta(directory)
-
-    {:ok, directory}
-  end
-
-  defp create_zip(directory) do
-    path = "./temporary"
-    categories = FileManager.categories()
-
-    items = categories
-            |> Enum.reduce([], fn (category, accum) ->
-              {:ok, items} = File.ls("#{path}/#{directory}/#{@full_path}/#{category}")
-              correct_items = items
-              |> Enum.reduce([], fn (item, item_accum) ->
-                %{subcat: subcat_path, item: item} = build_subcat(item)
-                item_accum ++ ["#{directory}/#{@full_path}/#{category}#{subcat_path}/#{item}"]
-              end)
-              accum ++ correct_items
-            end)
-
-    blockstates = elem(File.ls("#{path}/#{directory}/assets/minecraft/blockstates"), 1)
-    |> Enum.reduce([], fn(file, file_accum) -> file_accum ++ ["#{directory}/assets/minecraft/blockstates/#{file}"] end)
-
-    include_meta = items ++ ["#{directory}/pack.mcmeta"]
-    include_blockstates = include_meta ++ blockstates
-
-    files = include_blockstates
-    |> Enum.map(fn (x) -> String.to_charlist(x) end)
-
-    :zip.create(String.to_charlist("#{directory}.zip"), files, [cwd: path])
-  end
-
-  defp move_file_to_temp(source, directory, {path, name}) do
-    [prefix: prefix] = Application.get_env(:customizer, :setup)
-
-    %{subcat: subcat_path, item: item} = build_subcat(name)
-
-    File.mkdir("./temporary/#{directory}/#{@full_path}/#{path}")
-    File.mkdir("./temporary/#{directory}/#{@full_path}/#{path}#{subcat_path}")
-    File.cp("#{prefix}/images/#{source}", "./temporary/#{directory}/#{@full_path}/#{path}#{subcat_path}/#{item}.png")
-
-    #we need the mcmeta file for the resourcepack to work
-    File.cp("#{prefix}/pack.mcmeta", "./temporary/#{directory}/pack.mcmeta")
-  end
-  defp move_file_to_temp(source, directory, _), do: {:ok}
-
-  defp copy_blockstates(directory) do
-    [prefix: prefix] = Application.get_env(:customizer, :setup)
-
-    File.mkdir("./temporary/#{directory}/assets/minecraft/blockstates")
-    {:ok, blockstates} = File.ls("#{prefix}/blockstates")
-    blockstates
-    |> Enum.each(fn(file) -> File.cp("#{prefix}/blockstates/#{file}", "./temporary/#{directory}/assets/minecraft/blockstates/#{file}") end)
-  end
-
-  defp copy_mcmeta(directory) do
-    [prefix: prefix] = Application.get_env(:customizer, :setup)
-
-    {:ok, mcmeta} = File.ls("#{prefix}/mcmeta")
-    mcmeta
-    |> Enum.each(fn(file) -> File.cp("#{prefix}/mcmeta/#{file}", "./temporary/#{directory}/assets/minecraft/textures/blocks/#{file}") end)
-  end
-
-  defp build_subcat("subcat_" <> item) do
-    [subcat_dir | pieces] = String.split(item, "_")
-    item_name = Enum.join(pieces, "_")
-    %{subcat: "/#{subcat_dir}", item: item_name}
-  end
-  defp build_subcat(item) do
-    %{subcat: "", item: item}
   end
 
   defp do_all_things do

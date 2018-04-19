@@ -6,7 +6,9 @@ defmodule Customizer.ItemView do
     item
     |> String.split("_")
     |> Enum.map(fn(x) -> String.capitalize(x) end)
+    |> Enum.uniq()
     |> Enum.join(" ")
+    |> String.replace("Sub ", "")
   end
 
   def default_selected(item) do

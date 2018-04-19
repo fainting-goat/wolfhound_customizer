@@ -34,7 +34,7 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     width: 100%
 }
 
-.subcat {
+.sub {
     display: inline-block;
     background-color: #B2BDCC;
     padding: 4px 11px;
@@ -258,12 +258,12 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     height: auto;
 }
 
-#banner_base {
+#entity_div > div > div > #banner_base {
     width: 200px;
     height: 200px;
 }
 
-#banner_base > img {
+#entity_div > div > div > #banner_base > img {
     max-width: 100%;
     height: auto;
 }
@@ -278,202 +278,202 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     height: auto;
 }
 
-#subcat_bear_polarbear {
+#sub_bear_polarbear {
     width: 320px;
     height: 320px;
 }
 
-#subcat_bear_polarbear > img {
+#sub_bear_polarbear > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_boat_boat_acacia {
+#sub_boat_boat_acacia {
     width: 200px;
     height: 200px;
 }
 
-#subcat_boat_boat_acacia > img {
+#sub_boat_boat_acacia > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_boat_boat_birch {
+#sub_boat_boat_birch {
     width: 200px;
     height: 200px;
 }
 
-#subcat_boat_boat_birch > img {
+#sub_boat_boat_birch > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_boat_boat_darkoak {
+#sub_boat_boat_darkoak {
     width: 200px;
     height: 200px;
 }
 
-#subcat_boat_boat_darkoak > img {
+#sub_boat_boat_darkoak > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_boat_boat_jungle {
+#sub_boat_boat_jungle {
     width: 200px;
     height: 200px;
 }
 
-#subcat_boat_boat_jungle > img {
+#sub_boat_boat_jungle > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_boat_boat_oak {
+#sub_boat_boat_oak {
     width: 200px;
     height: 200px;
 }
 
-#subcat_boat_boat_oak > img {
+#sub_boat_boat_oak > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_boat_boat_spruce {
+#sub_boat_boat_spruce {
     width: 200px;
     height: 200px;
 }
 
-#subcat_boat_boat_spruce > img {
+#sub_boat_boat_spruce > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_chest_normal_double {
+#sub_chest_normal_double {
     width: 300px;
     height: 300px;
 }
 
-#subcat_chest_normal_double > img {
+#sub_chest_normal_double > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_chest_trapped_double {
+#sub_chest_trapped_double {
     width: 300px;
     height: 300px;
 }
 
-#subcat_chest_trapped_double > img {
+#sub_chest_trapped_double > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_endercrystal_endercrystal {
+#sub_endercrystal_endercrystal {
     width: 300px;
     height: 300px;
 }
 
-#subcat_endercrystal_endercrystal > img {
+#sub_endercrystal_endercrystal > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_donkey {
+#sub_horse_donkey {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_donkey > img {
+#sub_horse_donkey > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_black {
+#sub_horse_horse_black {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_black > img {
+#sub_horse_horse_black > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_brown {
+#sub_horse_horse_brown {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_brown > img {
+#sub_horse_horse_brown > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_chestnut {
+#sub_horse_horse_chestnut {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_chestnut > img {
+#sub_horse_horse_chestnut > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_creamy {
+#sub_horse_horse_creamy {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_creamy > img {
+#sub_horse_horse_creamy > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_darkbrown {
+#sub_horse_horse_darkbrown {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_darkbrown > img {
+#sub_horse_horse_darkbrown > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_gray {
+#sub_horse_horse_gray {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_gray > img {
+#sub_horse_horse_gray > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_skeleton {
+#sub_horse_horse_skeleton {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_skeleton > img {
+#sub_horse_horse_skeleton > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_horse_white {
+#sub_horse_horse_white {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_horse_white > img {
+#sub_horse_horse_white > img {
     max-width: 100%;
     height: auto;
 }
 
-#subcat_horse_mule {
+#sub_horse_mule {
     width: 300px;
     height: 300px;
 }
 
-#subcat_horse_mule > img {
+#sub_horse_mule > img {
     max-width: 100%;
     height: auto;
 }
@@ -538,12 +538,282 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
     height: auto;
 }
 
-#expanded_gui_div label {
+#book {
+    width: 400px;
+    height: 400px;
+}
+
+#book > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#icons {
+    width: 400px;
+    height: 400px;
+}
+
+#icons > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#recipe_book {
     width: 300px;
     height: 300px;
 }
 
-#expanded_gui_div img {
+#recipe_book > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#resource_packs {
+    width: 400px;
+    height: 400px;
+}
+
+#resource_packs > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#server_selection {
+    width: 400px;
+    height: 400px;
+}
+
+#server_selection > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_advancements_tabs {
+    width: 200px;
+    height: 200px;
+}
+
+#sub_advancements_tabs > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_advancements_widgets {
+    width: 200px;
+    height: 200px;
+}
+
+#sub_advancements_widgets > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_advancements_window {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_advancements_window > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_anvil {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_anvil > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_beacon {
+    width: 250px;
+    height: 250px;
+}
+
+#sub_container_beacon > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_brewing_stand {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_brewing_stand > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_crafting_table {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_crafting_table > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_dispenser {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_dispenser > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_enchanting_table {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_enchanting_table > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_brewing_stand {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_brewing_stand > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_furnace {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_furnace > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_generic_54 {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_generic_54> img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_hopper {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_hopper > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_horse{
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_horse > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_inventory {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_inventory > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_sub_creative_inventory_tab_inventory {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_sub_creative_inventory_tab_inventory > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_sub_creative_inventory_tab_item_search {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_sub_creative_inventory_tab_item_search > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_sub_creative_inventory_tab_items {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_sub_creative_inventory_tab_items > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_sub_creative_inventory_tabs {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_sub_creative_inventory_tabs > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_shulker_box {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_shulker_box > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sub_container_villager {
+    width: 300px;
+    height: 300px;
+}
+
+#sub_container_villager > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#widgets {
+    width: 300px;
+    height: 300px;
+}
+
+#widgets > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#world_selection {
+    width: 400px;
+    height: 400px;
+}
+
+#world_selection > img {
     max-width: 100%;
     height: auto;
 }
