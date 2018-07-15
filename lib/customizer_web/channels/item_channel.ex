@@ -16,7 +16,7 @@ defmodule CustomizerWeb.ItemChannel do
       |> FormData.to_form([])
 
     CustomizerWeb.ItemView
-    |> Phoenix.View.render_to_string("category_wip.html", category: category, conn: socket, changeset: changeset, f: f)
+    |> Phoenix.View.render_to_string("category.html", category: category, conn: socket, changeset: changeset, f: f)
     |> broadcast_html(category, socket)
   end
 
