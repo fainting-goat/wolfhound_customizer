@@ -1,0 +1,19 @@
+<%= if upper_file(@item) do %>
+  <label class="subcat"><%= proper_punctuation_for_tiled(@item) %></label>
+  <div>
+    <%= for file <- @files do %>
+      <label id="<%= @item %>">
+        <%= if default_selected(file) do %>
+          <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}", checked: "checked" %>
+        <%= else %>
+          <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}" %>
+        <% end %>
+        <div class="doubleTileDiv">
+          <img src="<%= static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>">
+          <br>
+          <img src="<%= static_path(@conn, "/images/#{@category}/#{lower_equiv(@item)}/#{file}") %>">
+        </div>
+      </label>
+    <% end %>
+  <% end %>
+</div>
