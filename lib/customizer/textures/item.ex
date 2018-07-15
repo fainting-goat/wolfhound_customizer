@@ -1,5 +1,6 @@
-defmodule Customizer.Item do
-  use Customizer.Web, :model
+defmodule Customizer.Textures.Item do
+  use Ecto.Schema
+  import Ecto.Changeset
 
   schema "items" do
     field :path, :string

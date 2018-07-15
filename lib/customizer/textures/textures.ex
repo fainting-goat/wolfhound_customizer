@@ -1,11 +1,13 @@
-defmodule Customizer.FileManager do
+defmodule Customizer.Textures do
   use GenServer
+
+  alias Customizer.Textures.Item
 
   def start_link() do
     GenServer.start_link(__MODULE__, %{}, name: :file_manager)
   end
 
-def init(state) do
+  def init(state) do
     [prefix: prefix] = Application.get_env(:customizer, :setup)
 
     default_items = build_default_list(prefix)

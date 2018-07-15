@@ -1,12 +1,12 @@
 defmodule Customizer.ZipBuilder do
 
-  alias Customizer.FileManager
+  alias Customizer.Textures
 
   @full_path "assets/minecraft/textures"
 
   def create_zip(directory) do
     path = "./temporary"
-    categories = FileManager.categories()
+    categories = Textures.categories()
 
     items = categories
             |> Enum.reduce([], fn (category, accum) ->
@@ -49,7 +49,7 @@ defmodule Customizer.ZipBuilder do
     |> Enum.each(
          fn (x) ->
            [path, name, _] = String.split(x, "/")
-           move_file_to_temp(x, directory, FileManager.valid_params(x))
+           move_file_to_temp(x, directory, Textures.valid_params(x))
          end
        )
 

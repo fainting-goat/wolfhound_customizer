@@ -10,17 +10,17 @@ config :customizer,
   ecto_repos: [Customizer.Repo]
 
 # Configures the endpoint
-config :customizer, Customizer.Endpoint,
+config :customizer, CustomizerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "gZmP9SB2n2jAgVsojbegvqoLFAf5cVEBVBrDzrf0WWTaI17m0QtQshcV6pPcVVYe",
-  render_errors: [view: Customizer.ErrorView, accepts: ~w(html json)],
+  secret_key_base: "3wMETDoG52IRBhSwHmjOOS0iugGjfek1HmBTfk9Kby3kB7/KD1NPSDFACGANYP03",
+  render_errors: [view: CustomizerWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Customizer.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+  metadata: [:user_id]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
