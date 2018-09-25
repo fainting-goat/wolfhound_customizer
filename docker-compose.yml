@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  app:
+    build: .
+    volumes:
+      - "$HOME/.ssh:/tmp/host-ssh"
+      - "$PWD:/app"
+    environment:
+      MIX_ENV: dev
+    ports:
+      - "4012:4012"
+    command: ["mix", "phx.server"]
+  test:
+    build: .
+    volumes:
+      - "$HOME/.ssh:/tmp/host-ssh"
+      - "$PWD:/app"
+    environment:
+      MIX_ENV: test
+    command: ["mix", "test"]

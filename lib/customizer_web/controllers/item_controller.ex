@@ -13,8 +13,8 @@ defmodule CustomizerWeb.ItemController do
   end
 
   def create(conn, %{"item" => item_params}) do
-    updated_list = create_tiled_files(item_params)
-    full_list = Map.merge(Textures.default_list, updated_list)
+#    updated_list = create_tiled_files(item_params)
+    full_list = Map.merge(Textures.default_list, item_params)
     complete_list = update_clock_files(item_params, full_list)
 
     {:ok, temp_dir} = ZipBuilder.create_temp_directory(complete_list)

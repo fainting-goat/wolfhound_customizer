@@ -17,11 +17,11 @@ defmodule CustomizerWeb.ItemChannel do
 
     CustomizerWeb.ItemView
     |> Phoenix.View.render_to_string("category.html", category: category, conn: socket, changeset: changeset, f: f)
-    |> broadcast_html(category, socket)
+    |> push_html(category, socket)
   end
 
-  defp broadcast_html(html, category, socket) do
-    broadcast!(socket, "item_response", %{html: html, category: category})
+  defp push_html(html, category, socket) do
+    push(socket, "item_response", %{html: html, category: category})
     {:noreply, socket}
   end
 end

@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  app:
+    build: .
+    volumes:
+      - "$HOME/.ssh:/tmp/host-ssh"
+      - "$PWD:/app"
+    environment:
+      MIX_ENV: prod
+      PORT: 4012
+    ports:
+      - "4012:4012"
+    command: ["mix", "phx.server"]

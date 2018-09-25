@@ -1,7 +1,7 @@
 use Mix.Config
 
 config :customizer, :setup,
-  prefix: "./lib/customizer-0.0.1/priv/static/"
+  prefix: "./priv/static/"
 
 # For production, we often load configuration from external
 # sources, such as your system environment. For this reason,
@@ -18,7 +18,7 @@ config :customizer, :setup,
 # which you typically run after static files are built.
 config :customizer, CustomizerWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "example.com", port: 80],
+  url: [host: "localhost", port: 4012],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
