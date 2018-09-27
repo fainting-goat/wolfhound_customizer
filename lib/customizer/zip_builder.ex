@@ -86,7 +86,7 @@ defmodule Customizer.ZipBuilder do
 
     {:ok, mcmeta} = File.ls("#{prefix}/mcmeta")
     mcmeta
-    |> Enum.each(fn(file) -> File.cp("#{prefix}/mcmeta/#{file}", "./temporary/#{directory}/assets/minecraft/textures/blocks/#{file}") end)
+    |> Enum.each(fn(file) -> File.cp("#{prefix}/mcmeta/#{file}", "./temporary/#{directory}/assets/minecraft/textures/block/#{file}") end)
   end
 
   defp build_subcat(item, subcat \\ "")
