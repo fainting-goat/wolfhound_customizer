@@ -16,9 +16,12 @@ defmodule CustomizerWeb.ItemController do
   end
 
   def create(conn, %{"item" => item_params}) do
-    updated_list = create_tiled_files(item_params)
-    full_list = Map.merge(Textures.default_list, updated_list)
-    complete_list = update_clock_files(item_params, full_list)
+    sanitized_list = item_params
+    |> Map.drop(["password"])
+    |> create_tiled_files()
+
+    complete_list = Map.merge(Textures.default_list, sanitized_list)
+    |> update_clock_files(item_params)
 
     {:ok, temp_dir} = ZipBuilder.create_temp_directory(complete_list)
     {:ok, zip} = ZipBuilder.create_zip(temp_dir)
@@ -52,7 +55,7 @@ defmodule CustomizerWeb.ItemController do
     %{categories: categories, items: filenames, changeset: changeset}
   end
 
-  defp update_clock_files(item_params, full_list) do
+  defp update_clock_files(full_list, item_params) do
     type_name = case item_params["clock_00"] do
                   "items/clock_00/" <> suffix ->  suffix
                   _ -> "default.png"

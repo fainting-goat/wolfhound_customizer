@@ -5,9 +5,9 @@
   <%= for {item, files} <- get_images(@category)  do %>
     <div>
       <%= if is_two_tiles?(item) do %>
-        <%= render "tiled_items.html", item: item, files: files, f: @f, category: @category, conn: @conn%>
+        <%= render "tiled_items.html", item: item, files: files, f: @f, category: @category, conn: @conn, reload: @reload%>
       <%= else %>
-        <%= render "single_items.html", item: item, files: files, f: @f, category: @category, conn: @conn%>
+        <%= render "single_items.html", item: item, files: files, f: @f, category: @category, conn: @conn, reload: @reload%>
       <% end %>
     </div>
   <% end %>

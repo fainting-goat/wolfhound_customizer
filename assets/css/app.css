@@ -1,5 +1,21 @@
 /* This file is for your main application css. */
 
+body {
+    background-color: #5e5e5e;
+}
+
+@media (min-width: 768px){
+    .container{
+        max-width:100%;
+    }
+}
+
+@media (min-width: 992px){
+    .container{
+        max-width:100%;
+    }
+}
+
 label > input{ /* HIDE RADIO */
     visibility: hidden; /* Makes input not-clickable */
     position: absolute; /* Remove input from document flow */
