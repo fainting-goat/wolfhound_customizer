@@ -211,7 +211,7 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
     vertical-align: top;
 }
 
-#fire_layer_0 {
+#fire_0 {
     width: 66px;
     height: 66px;
     overflow: hidden;
@@ -220,7 +220,7 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
     vertical-align: top;
 }
 
-#fire_layer_1 {
+#fire_1 {
     width: 66px;
     height: 66px;
     overflow: hidden;
@@ -238,7 +238,7 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
     vertical-align: top;
 }
 
-#portal {
+#nether_portal {
     width: 66px;
     height: 66px;
     overflow: hidden;
@@ -296,62 +296,62 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
     height: auto;
 }
 
-#sub_boat_boat_acacia {
+#sub_boat_acacia {
     width: 200px;
     height: 200px;
 }
 
-#sub_boat_boat_acacia > img {
+#sub_boat_acacia > img {
     max-width: 100%;
     height: auto;
 }
 
-#sub_boat_boat_birch {
+#sub_boat_birch {
     width: 200px;
     height: 200px;
 }
 
-#sub_boat_boat_birch > img {
+#sub_boat_birch > img {
     max-width: 100%;
     height: auto;
 }
 
-#sub_boat_boat_darkoak {
+#sub_boat_dark_oak {
     width: 200px;
     height: 200px;
 }
 
-#sub_boat_boat_darkoak > img {
+#sub_boat_dark_oak > img {
     max-width: 100%;
     height: auto;
 }
 
-#sub_boat_boat_jungle {
+#sub_boat_jungle {
     width: 200px;
     height: 200px;
 }
 
-#sub_boat_boat_jungle > img {
+#sub_boat_jungle > img {
     max-width: 100%;
     height: auto;
 }
 
-#sub_boat_boat_oak {
+#sub_boat_oak {
     width: 200px;
     height: 200px;
 }
 
-#sub_boat_boat_oak > img {
+#sub_boat_oak > img {
     max-width: 100%;
     height: auto;
 }
 
-#sub_boat_boat_spruce {
+#sub_boat_spruce {
     width: 200px;
     height: 200px;
 }
 
-#sub_boat_boat_spruce > img {
+#sub_boat_spruce > img {
     max-width: 100%;
     height: auto;
 }
@@ -376,12 +376,12 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
     height: auto;
 }
 
-#sub_endercrystal_endercrystal {
+#sub_end_crystal_end_crystal {
     width: 300px;
     height: 300px;
 }
 
-#sub_endercrystal_endercrystal > img {
+#sub_end_crystal_end_crystal > img {
     max-width: 100%;
     height: auto;
 }
@@ -546,12 +546,12 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
     height: auto;
 }
 
-#book {
+#gui_div #book {
     width: 400px;
     height: 400px;
 }
 
-#book > img {
+#gui_div #book > img {
     max-width: 100%;
     height: auto;
 }

@@ -35,3 +35,7 @@ $('.flavorButton').click(function () {
         }
     })
 })
+
+$('#createButton').click(function () {
+    $('#createButton').enabled = false;
+})
