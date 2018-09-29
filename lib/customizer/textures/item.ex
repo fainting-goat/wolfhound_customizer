@@ -3,17 +3,15 @@ defmodule Customizer.Textures.Item do
   import Ecto.Changeset
 
   schema "items" do
+    field :name, :string
     field :path, :string
-    field :category, :string
-    field :type, :string
-    field :flavor, :string
 
     timestamps()
   end
 
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:path, :category, :type, :flavor])
-    |> validate_required([:path, :category, :type, :flavor])
+    |> cast(params, [:name, :path])
+    |> validate_required([:name, :path])
   end
 end

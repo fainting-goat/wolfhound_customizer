@@ -1,5 +1,55 @@
 /* This file is for your main application css. */
 
+body {
+    background-color: #5e5e5e;
+}
+
+@media (min-width: 768px){
+    .container{
+        max-width:100%;
+    }
+}
+
+@media (min-width: 992px){
+    .container{
+        max-width:100%;
+    }
+}
+
+.lightBox {
+    background-color: #9d9d9d;
+    padding: 10px;
+}
+
+.lightBox a {
+    color: #aef0ff
+}
+
+.darkBox {
+    padding: 10px;
+}
+
+.subcat {
+    color: whitesmoke;
+}
+
+.btn-primary {
+    background-color: hsl(108, 0%, 92%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eaeaea", endColorstr="#eaeaea");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#eaeaea), to(#eaeaea));
+    background-image: -moz-linear-gradient(top, #eaeaea, #eaeaea);
+    background-image: -ms-linear-gradient(top, #eaeaea, #eaeaea);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eaeaea), color-stop(100%, #eaeaea));
+    background-image: -webkit-linear-gradient(top, #eaeaea, #eaeaea);
+    background-image: -o-linear-gradient(top, #eaeaea, #eaeaea);
+    background-image: linear-gradient(#eaeaea, #eaeaea);
+    border-color: #eaeaea #eaeaea hsl(108, 0%, 92%);
+    color: #333 !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.00);
+    -webkit-font-smoothing: antialiased;
+}
+
 label > input{ /* HIDE RADIO */
     visibility: hidden; /* Makes input not-clickable */
     position: absolute; /* Remove input from document flow */
@@ -26,7 +76,7 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
 
 .expanded {
     display: inline-block;
-    background-color: #92A4BF;
+    background-color: #9d9d9d;
     padding: 4px 11px;
     font-size: 24px;
     cursor: pointer;
@@ -35,7 +85,7 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
 
 .expand {
     display: inline-block;
-    background-color: #92A4BF;
+    background-color: #9d9d9d;
     padding: 4px 11px;
     font-size: 24px;
     cursor: pointer;
@@ -52,7 +102,7 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
 
 .flavorButton {
     display: inline-block;
-    background-color: #92A4BF;
+    background-color: #9d9d9d;
     padding: 4px 11px;
     font-size: 16px;
     cursor: pointer;

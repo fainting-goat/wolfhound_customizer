@@ -10,7 +10,8 @@ defmodule Customizer.Application do
     children = [
       supervisor(CustomizerWeb.Endpoint, []),
       worker(Customizer.CleanupJob, []),
-      worker(Customizer.Textures, [])
+      worker(Customizer.Textures, []),
+      worker(Customizer.SavedSelections, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

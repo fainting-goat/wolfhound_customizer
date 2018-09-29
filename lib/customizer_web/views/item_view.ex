@@ -4,6 +4,7 @@ defmodule CustomizerWeb.ItemView do
   import Customizer.TiledItems
 
   alias Customizer.Textures
+  alias Customizer.SavedSelections
 
   def proper_punctuation(item) do
     item
@@ -33,6 +34,17 @@ defmodule CustomizerWeb.ItemView do
 
   def default_selected(item) do
     Regex.match?(~r/default/, item)
+  end
+
+  def preload?(category, item, file, socket) do
+    check_preload_assign(socket.assigns, "#{category}/#{item}/#{file}")
+  end
+
+  def check_preload_assign(%{keyword: password}, file) do
+    SavedSelections.verify_selection(password, file)
+  end
+  def check_preload_assign(_, _) do
+    false
   end
 
   def get_images(category) do
