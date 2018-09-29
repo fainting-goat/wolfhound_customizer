@@ -11,7 +11,7 @@ defmodule Customizer.Application do
       supervisor(CustomizerWeb.Endpoint, []),
       worker(Customizer.CleanupJob, []),
       worker(Customizer.Textures, []),
-      worker(Customizer.SavedSelections, [])
+      worker(Customizer.SaveManager, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

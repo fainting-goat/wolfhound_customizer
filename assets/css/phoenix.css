@@ -7150,18 +7150,16 @@ body, form, ul, table {
     display: none;
 }
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
+.logo {
+    width: 787px;
+    height: 225px;
+    display: inline-block;
+    background-image: url("/customizer_title.png");
+    background-size: 787px 225px;
 }
 
-.logo {
-    width: 519px;
-    height: 71px;
-    display: inline-block;
-    margin-bottom: 1em;
-    background-image: url("/images/phoenix.png");
-    background-size: 519px 71px;
+.logo-header {
+    padding-left: 10px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

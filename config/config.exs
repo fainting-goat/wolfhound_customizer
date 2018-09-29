@@ -5,6 +5,9 @@
 # is restricted to this project.
 use Mix.Config
 
+config :customizer, :setup,
+       prefix: "./priv/static/"
+
 # General application configuration
 config :customizer,
   ecto_repos: [Customizer.Repo]

@@ -1,7 +1,5 @@
 <h3>Load Selections</h3>
 <p>Enter your keyword to access your pack.</p>
-<p><b>This feature is still under development.</b> You will lose your selections
-whenever I reboot the app.  I'll fix that soon.</p>
 <p><input type="text" id="keywordLoad"></p>
 <p><input type="submit" class="btn btn-primary" id="load"></p>
 <div id="loadResults"></div>
