@@ -1,5 +1,8 @@
 defmodule CustomizerWeb.ItemController do
   use CustomizerWeb, :controller
+
+  import Customizer.TiledItems
+
   alias Customizer.Textures.Item
   alias Customizer.Textures
   alias Customizer.ZipBuilder
@@ -13,8 +16,8 @@ defmodule CustomizerWeb.ItemController do
   end
 
   def create(conn, %{"item" => item_params}) do
-#    updated_list = create_tiled_files(item_params)
-    full_list = Map.merge(Textures.default_list, item_params)
+    updated_list = create_tiled_files(item_params)
+    full_list = Map.merge(Textures.default_list, updated_list)
     complete_list = update_clock_files(item_params, full_list)
 
     {:ok, temp_dir} = ZipBuilder.create_temp_directory(complete_list)
@@ -67,14 +70,11 @@ defmodule CustomizerWeb.ItemController do
   defp create_tiled_files(item_params) do
     item_params
     |> Enum.reduce(%{}, fn({key, item}, acc) ->
-      cond do
-        Regex.match?(~r/_upper/, key) ->
-          acc = Map.put(acc, key, item)
-          Map.put(acc, String.replace(key, "upper", "lower"), String.replace(item, "upper", "lower"))
-        Regex.match?(~r/_top/, key) ->
-          acc = Map.put(acc, key, item)
-          Map.put(acc, String.replace(key, "_top", "_bottom"), String.replace(item, "_top", "_bottom"))
-        true -> Map.put(acc, key, item)
+      if top_file?(String.replace(key, "block_", "")) do
+        acc = Map.put(acc, key, item)
+        Map.put(acc, lower_equiv(key), lower_equiv(item))
+      else
+        Map.put(acc, key, item)
       end
     end)
   end

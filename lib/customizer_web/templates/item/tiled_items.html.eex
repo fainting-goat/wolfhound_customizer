@@ -1,4 +1,4 @@
-<%= if upper_file(@item) do %>
+<%= if top_file?(@item) do %>
   <label class="subcat"><%= proper_punctuation_for_tiled(@item) %></label>
   <div>
     <%= for file <- @files do %>
