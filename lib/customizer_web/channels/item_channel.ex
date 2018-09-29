@@ -24,7 +24,7 @@ defmodule CustomizerWeb.ItemChannel do
   end
   def handle_in("get_selections", %{"keyword" => keyword}, socket) do
     results = SavedSelections.get_selections(keyword)
-    push_results_of_load(socket, results, keyword)
+    push_results_of_load(socket, results)
 
     {:noreply, socket}
   end
@@ -41,14 +41,13 @@ defmodule CustomizerWeb.ItemChannel do
     {:noreply, socket}
   end
 
-  def push_results_of_load(socket, {:ok, selections}, keyword) do
-    socket = assign(socket, :keyword, keyword) #only assign key if we're successful
+  def push_results_of_load(socket, {:ok, selections}) do
     push(socket, "load_response", %{selections: selections, message: "Load successful!"})
   end
-  def push_results_of_load(socket, {:error, "Invalid key."}, _) do
+  def push_results_of_load(socket, {:error, "Invalid key."}) do
     push(socket, "load_response", %{selections: [], message: "Key does not exist."})
   end
-  def push_results_of_load(socket, {:error, message}, _) do
+  def push_results_of_load(socket, {:error, message}) do
     push(socket, "load_response", %{selections: [], message: "Something has gone horribly wrong. Please send this to Thistle: #{message}"})
   end
 

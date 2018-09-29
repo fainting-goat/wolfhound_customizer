@@ -32,8 +32,8 @@ defmodule CustomizerWeb.ItemView do
     item
   end
 
-  def default_selected(conn, item) do
-    Regex.match?(~r/default/, item) && conn.assigns == %{}
+  def default_selected(item) do
+    Regex.match?(~r/default/, item)
   end
 
   def preload?(category, item, file, socket) do

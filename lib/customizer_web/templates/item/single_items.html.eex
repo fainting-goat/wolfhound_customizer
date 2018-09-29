@@ -2,7 +2,7 @@
 <div>
   <%= for file <- @files do %>
     <label id="<%= @item %>">
-      <%= if default_selected(@conn, file) || preload?(@category, @item, file, @conn) do %>
+      <%= if preload?(@category, @item, file, @conn) do %>
         <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}", checked: "checked" %>
       <%= else %>
         <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}" %>
