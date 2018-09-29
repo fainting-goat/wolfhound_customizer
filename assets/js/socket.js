@@ -24,7 +24,7 @@ $('#save').click(function () {
     });
 
     let keyword = $('#keyword').val();
-    itemChannel.push('set_selections', {keyword: keyword, selections: selected})
+    itemChannel.push('set_selections', {keyword: keyword, selections: selected});
 });
 
 $('#load').click(function () {
@@ -39,11 +39,26 @@ currentCategory.replaceWith(payload.html)
 });
 
 itemChannel.on('load_response', payload => {
-    let currentCategory = $("#expanded_" + payload.category +"_div");
-    let subDiv = $("#colormap_div");
-    subDiv.remove();
-    currentCategory.empty();
-    currentCategory.replaceWith(payload.html)
+    let parsedSelections = payload.selections;
+
+    $("input[type=radio]").each(function () {
+        this.checked = false;
+    });
+
+    parsedSelections.forEach(function(item) {
+        let itemElement = $("input[value='" + item + "']");
+        if (itemElement.length) {
+            itemElement[0].checked = true;
+        }
+    });
+
+    $("#loadResults").html("<h4>" + payload.message + "</h4>");
+});
+
+itemChannel.on('save_response', payload => {
+    let message = payload.message;
+
+    $("#saveResults").html("<h3>" + message + "</h3>");
 });
 
 itemChannel.join()

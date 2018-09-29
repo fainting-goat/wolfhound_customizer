@@ -32,19 +32,18 @@ defmodule CustomizerWeb.ItemView do
     item
   end
 
-  def default_selected(item) do
-    Regex.match?(~r/default/, item)
+  def default_selected(conn, item) do
+    Regex.match?(~r/default/, item) && conn.assigns == %{}
   end
 
   def preload?(category, item, file, socket) do
-    get_preload_assign(socket.assigns, "#{category}/#{item}/#{file}")
+    check_preload_assign(socket.assigns, "#{category}/#{item}/#{file}")
   end
 
-  def get_preload_assign(%{keyword: password}, file) do
-    SavedSelections.get_selections(password)
-    |> Enum.member?(file)
+  def check_preload_assign(%{keyword: password}, file) do
+    SavedSelections.verify_selection(password, file)
   end
-  def get_preload_assign(_, _) do
+  def check_preload_assign(_, _) do
     false
   end
 

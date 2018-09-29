@@ -1,8 +1,8 @@
-<label class="subcat"><%= proper_punctuation(@item) %></label>
+<label class="subcat" id="<%= @category %>"><%= proper_punctuation(@item) %></label>
 <div>
   <%= for file <- @files do %>
     <label id="<%= @item %>">
-      <%= if (default_selected(file) && !@reload) || preload?(@category, @item, file, @conn) do %>
+      <%= if default_selected(@conn, file) || preload?(@category, @item, file, @conn) do %>
         <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}", checked: "checked" %>
       <%= else %>
         <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}" %>
