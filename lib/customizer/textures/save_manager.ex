@@ -38,7 +38,7 @@ defmodule Customizer.SaveManager do
 
   def save_state(state) do
     Enum.each(state, fn({key, {pid, _}}) ->
-      selections = SavedSelections.get_state(pid)
+      selections = SavedSelections.get_original_list(pid)
       |> elem(1)
       |> Enum.join(",")
 
@@ -91,7 +91,7 @@ defmodule Customizer.SaveManager do
       !valid_key?(password) -> {:reply, {:error, "Letters and numbers only, please."}, state}
       Map.has_key?(state, password) ->
         pid = get_pid(password, state)
-        {:ok, selections} = SavedSelections.get_state(pid)
+        {:ok, selections} = SavedSelections.get_original_list(pid)
         {:reply, {:ok, selections}, state}
       true -> {:reply, {:error, "Keyword does not exist."}, state}
     end
