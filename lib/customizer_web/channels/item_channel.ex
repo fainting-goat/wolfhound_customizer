@@ -2,7 +2,7 @@ defmodule CustomizerWeb.ItemChannel do
   use Phoenix.Channel
   alias Phoenix.HTML.FormData
   alias Customizer.Textures.Item
-  alias Customizer.SavedSelections
+  alias Customizer.SaveManager
 
   @categories ["block", "colormap", "entity", "environment", "font", "gui", "item", "map", "models", "painting", "particle"]
 
@@ -23,14 +23,14 @@ defmodule CustomizerWeb.ItemChannel do
     |> push_html("item_response", category, socket)
   end
   def handle_in("get_selections", %{"keyword" => keyword}, socket) do
-    results = SavedSelections.get_selections(keyword)
+    results = SaveManager.get_selections(keyword)
+    socket = assign(socket, :keyword, keyword)
     push_results_of_load(socket, results)
 
     {:noreply, socket}
   end
   def handle_in("set_selections", %{"keyword" => keyword, "selections" => selections}, socket) do
-    results = SavedSelections.save_selections(keyword, selections)
-
+    results = SaveManager.save_selections(keyword, selections)
     push_results_of_save(socket, results)
 
     {:noreply, socket}
@@ -44,17 +44,14 @@ defmodule CustomizerWeb.ItemChannel do
   def push_results_of_load(socket, {:ok, selections}) do
     push(socket, "load_response", %{selections: selections, message: "Load successful!"})
   end
-  def push_results_of_load(socket, {:error, "Invalid key."}) do
-    push(socket, "load_response", %{selections: [], message: "Key does not exist."})
-  end
   def push_results_of_load(socket, {:error, message}) do
-    push(socket, "load_response", %{selections: [], message: "Something has gone horribly wrong. Please send this to Thistle: #{message}"})
+    push(socket, "load_response", %{selections: [], message: message})
   end
 
   def push_results_of_save(socket, {:ok, message}) do
     push(socket, "save_response", %{message: message})
   end
   def push_results_of_save(socket, {:error, message}) do
-    push(socket, "save_response", %{message: "Something has gone horribly wrong. Please send this to Thistle: #{message}"})
+    push(socket, "save_response", %{message: message})
   end
 end

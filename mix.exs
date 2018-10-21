@@ -42,7 +42,8 @@ defmodule Customizer.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:distillery, "~> 1.5", runtime: false},
-      {:uuid, "~> 1.1"}
+      {:uuid, "~> 1.1"},
+      {:double, "~> 0.6.2", only: :test}
     ]
   end
 
@@ -53,6 +54,8 @@ defmodule Customizer.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    []
+    [
+#      test: "test --no-start"
+    ]
   end
 end

@@ -1,48 +1,57 @@
 defmodule Customizer.SavedSelections do
   use GenServer
 
-  def start_link() do
-    GenServer.start_link(__MODULE__, %{}, name: :saved_selections)
+  def start_link(selections) do
+    GenServer.start_link(__MODULE__, selections)
   end
 
   def init(state) do
-    {:ok, %{}}
+    {:ok, {state, chunk_selections(state)}}
   end
 
   #API
 
-  def save_selections(password, selections) do
-    GenServer.call(:saved_selections, {:save_selections, password, selections})
+  def get_state(pid) do
+    GenServer.call(pid, {:get_state})
   end
 
-  def get_selections(password) do
-    GenServer.call(:saved_selections, {:get_selections, password})
+  def get_original_list(pid) do
+    GenServer.call(pid, {:get_original_list})
   end
 
-  def verify_selection(password, file) do
-    GenServer.call(:saved_selections, {:verify_selection, password, file})
+  def verify_file(pid, file) do
+    GenServer.call(pid, {:verify_file, file})
   end
 
   #CALLBACKS
 
-  def handle_call({:save_selections, password, selections}, _from, state) do
-    if Map.has_key?(state, password) do
-      {:reply, {:ok, "Keyword already exists, please use a different key."}, state}
-    else
-      new_state = Map.put(state, password, selections)
-      {:reply, {:ok, "Your selections have been saved!"}, new_state}
+  def handle_call({:get_state}, _from, state) do
+    {:reply, {:ok, state}, state}
+  end
+
+  def handle_call({:get_original_list}, _from, {original_list, _} = state) do
+    {:reply, {:ok, original_list}, state}
+  end
+
+  def handle_call({:verify_file, file}, _from, {_, parsed_map} = state) do
+    [group_key, item_key, item_value] = String.split(file, "/")
+
+    case parsed_map[group_key][item_key] do
+      ^item_value -> {:reply, {:ok, true}, state}
+      _ -> {:reply, {:ok, false}, state}
     end
   end
 
-  def handle_call({:get_selections, password}, _from, state) do
-    if Map.has_key?(state, password) do
-      {:reply, {:ok, state[password]}, state}
-    else
-      {:reply, {:error, "Invalid key."}, state}
-    end
-  end
+  defp chunk_selections(selections) do
+    selections
+    |> Enum.reduce(%{}, fn(item, acc) ->
+      [group_key, item_key, item_value] = String.split(item, "/")
 
-  def handle_call({:verify_selection, password, file}, _from, state) do
-    {:reply, Enum.member?(state[password], file), state}
+      if Map.has_key?(acc, group_key) do
+        put_in(acc, [group_key, item_key], item_value)
+      else
+        Map.put(acc, group_key, %{item_key => item_value})
+      end
+    end)
   end
 end

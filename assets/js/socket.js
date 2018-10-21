@@ -36,15 +36,6 @@ itemChannel.on('item_response', payload => {
     let currentCategory = $(".expand#" + payload.category);
     currentCategory.empty();
     currentCategory.replaceWith(payload.html);
-
-    $("#" + payload.category +"_div").find("input[type=radio]").each(function () {
-        if ($(this).attr('id').includes("default") ) {
-            this.checked = true;
-        }
-        else {
-            this.checked = false;
-        }
-    })
 });
 
 itemChannel.on('load_response', payload => {
