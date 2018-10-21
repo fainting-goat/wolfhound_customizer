@@ -8,6 +8,13 @@ defmodule Customizer.ZipBuilder do
     path = "./temporary"
     categories = Textures.categories()
 
+#    items = categories
+    #    |> Enum.reduce([], fn(category, accum) ->
+    #        File.ls("#{path}/#{directory}/#{@full_path}/#{category}")
+    #        |> elem(1)
+    #        |> Enum.reduce([], fn (item, item_accum) ->  end)
+    #      end)
+
     items = categories
             |> Enum.reduce([], fn (category, accum) ->
       {:ok, items} = File.ls("#{path}/#{directory}/#{@full_path}/#{category}")

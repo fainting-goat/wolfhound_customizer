@@ -10,9 +10,7 @@ defmodule CustomizerWeb.ItemController do
   @full_path "assets/minecraft/textures"
 
   def index(conn, params) do
-    %{categories: categories, items: images, changeset: changeset} = do_all_things()
-
-    render conn, "index.html", categories: categories, items: images, changeset: changeset
+    render conn, "index.html", categories: categories()
   end
 
   def create(conn, %{"item" => item_params}) do
@@ -33,27 +31,16 @@ defmodule CustomizerWeb.ItemController do
     |> send_file(200, to_string(zip))
   end
   def create(conn, %{}) do
-    %{categories: categories, items: images, changeset: changeset} = do_all_things()
-
     conn
     |> put_flash(:error, "Please make some selections before creating a texture pack.")
-    |> render "index.html", categories: categories, items: images, changeset: changeset
+    |> render "index.html", categories: categories()
   end
 
   def create(conn) do
     render("index.html")
   end
 
-  defp do_all_things do
-    [prefix: prefix] = Application.get_env(:customizer, :setup)
-
-    changeset = Item.changeset(%Item{})
-
-    categories = Textures.categories()
-    filenames = Textures.file_list()
-
-    %{categories: categories, items: filenames, changeset: changeset}
-  end
+  defp categories(), do: Textures.categories()
 
   defp update_clock_files(full_list, item_params) do
     type_name = case item_params["clock_00"] do
