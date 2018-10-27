@@ -14,6 +14,10 @@
           <%= render determine_item_template(sub_category.name), item: sub_category.name, files: sub_category.files, category: @category, conn: @conn%>
         </div>
       <% end %>
+
+      <div id="expanded_div" class="header_div" data-toggle="collapse" data-target="#<%= custom_category %>_div" class aria-expanded="false">
+        <div><label class="expanded_custom_footer">Collapse <%= proper_punctuation(custom_category) %></label></div>
+      </div>
     </div>
   <% end %>
 

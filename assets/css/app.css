@@ -85,11 +85,21 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
 
 .expanded_custom {
     display: inline-block;
-    background-color: #9d9d9d;
+    background-color: #8c8c8c;
     padding: 4px 11px;
     font-size: 20px;
     cursor: pointer;
-    width: 90%
+    width: 90%;
+    margin-left: 20px
+}
+
+.expanded_custom_footer {
+    display: inline-block;
+    background-color: #8c8c8c;
+    padding: 4px 11px;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 10px
 }
 
 .expand {

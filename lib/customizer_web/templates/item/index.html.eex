@@ -4,11 +4,6 @@
   </div>
   <div class="col-sm-10">
     <div class="lightBox">
-      <p><b>Updated for 1.13!</b></p>
-      <p>I'll be honest.  I didn't test this very well.  Please let me know if I missed something.</p>
-    </div>
-
-    <div class="lightBox">
       <p>The Wolfhound Customizer is a pet project I use to practice Elixir.  It also provides a useful service by letting
       you build your own custom version of Wolfhound!
       <hr>

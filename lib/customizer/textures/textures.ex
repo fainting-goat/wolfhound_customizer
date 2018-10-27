@@ -144,15 +144,9 @@ defmodule Customizer.Textures do
     result == 1
   end
 
-  defp hide_clock_files("clock_00") do
-    false
-  end
-  defp hide_clock_files("clock" <> _) do
-    true
-  end
-  defp hide_clock_files(_) do
-    false
-  end
+  defp hide_clock_files("clock_00"), do: false
+  defp hide_clock_files("clock" <> _), do: true
+  defp hide_clock_files(_), do: false
 
   defp sub_category_name(sub_cat) do
     if Map.has_key?(custom_category_map(), sub_cat) do
