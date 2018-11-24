@@ -18,11 +18,10 @@ import "phoenix_html"
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
+import css from "../css/app.css"
 import socket from "./socket"
 
 import $ from "jquery"
-import "bootstrap"
-import "bootstrap-select"
 
 $('.flavorButton').click(function () {
     let flavor = this.id;
@@ -34,8 +33,23 @@ $('.flavorButton').click(function () {
             this.checked = false;
         }
     })
-})
+});
+
+$('.expand').click(function () {
+    let category = $(this).attr("for");
+    let categoryDiv = $("#" + category + "_div");
+
+    if (categoryDiv.hasClass("expanded")) {
+        categoryDiv.removeClass("expanded");
+        categoryDiv.addClass("collapsed");
+    }
+    else {
+        categoryDiv.removeClass("collapsed");
+        categoryDiv.addClass("expanded");
+    }
+});
 
 $('#createButton').click(function () {
     $('#createButton').enabled = false;
-})
+});
+

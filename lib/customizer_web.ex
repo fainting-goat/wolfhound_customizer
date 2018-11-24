@@ -21,8 +21,9 @@ defmodule CustomizerWeb do
     quote do
       use Phoenix.Controller, namespace: CustomizerWeb
       import Plug.Conn
-      import CustomizerWeb.Router.Helpers
       import CustomizerWeb.Gettext
+
+      alias CustomizerWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -37,9 +38,10 @@ defmodule CustomizerWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import CustomizerWeb.Router.Helpers
       import CustomizerWeb.ErrorHelpers
       import CustomizerWeb.Gettext
+
+      alias CustomizerWeb.Router.Helpers, as: Routes
     end
   end
 

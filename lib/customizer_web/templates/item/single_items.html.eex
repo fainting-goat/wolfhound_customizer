@@ -1,7 +1,10 @@
-<label class="subcat" id="<%= @category %>"><%= proper_punctuation(@item) %></label>
-<div>
+<div class="row">
+  <label class="subcat"><%= proper_punctuation(@item) %></label>
+</div>
+
+<div class="row">
   <%= for file <- @files do %>
-    <label id="<%= @item %>">
+      <label id="<%= @item %>">
 
       <%= cond do %>
         <%= preload?(@conn) && selected_file?(@category, @item, file, @conn) -> %>
@@ -12,7 +15,7 @@
           <%= radio_button :item, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}" %>
       <% end %>
 
-      <img src="<%= static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>">
-    </label>
+        <img src="<%= Routes.static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>">
+      </label>
   <% end %>
 </div>
