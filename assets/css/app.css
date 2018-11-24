@@ -147,3 +147,201 @@ img {
     font-size: 16px;
     cursor: pointer;
 }
+
+#repeating_command_block_back {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#repeating_command_block_conditional {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#repeating_command_block_front {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#repeating_command_block_side {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_back {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_conditional {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_front {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#chain_command_block_side {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_back {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_conditional {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_front {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#command_block_side {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#water_flow {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#water_overlay {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#water_still {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#lava_flow {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#lava_still {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#fire_0 {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#fire_1 {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#magma {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#nether_portal {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#prismarine_rough {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
