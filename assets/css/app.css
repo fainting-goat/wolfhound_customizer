@@ -59,7 +59,7 @@ label > input + img{ /* IMAGE STYLES */
     border:2px solid transparent;
 }
 label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-    border:2px solid #ff0099;
+    border:2px solid #9d9d9d;
 }
 
 label > input + .doubleTileDiv{ /* IMAGE STYLES */
@@ -67,7 +67,7 @@ label > input + .doubleTileDiv{ /* IMAGE STYLES */
     border:2px solid transparent;
 }
 label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
-    border:2px solid #ff0099;
+    border:2px solid #9d9d9d;
 }
 
 .expandable {
@@ -81,6 +81,25 @@ label > input:checked + .doubleTileDiv{ /* (RADIO CHECKED) IMAGE STYLES */
     font-size: 24px;
     cursor: pointer;
     width: 100%
+}
+
+.expanded_custom {
+    display: inline-block;
+    background-color: #8c8c8c;
+    padding: 4px 11px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 90%;
+    margin-left: 20px
+}
+
+.expanded_custom_footer {
+    display: inline-block;
+    background-color: #8c8c8c;
+    padding: 4px 11px;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 10px
 }
 
 .expand {

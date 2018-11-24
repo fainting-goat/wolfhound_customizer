@@ -6,6 +6,14 @@ defmodule CustomizerWeb.ItemView do
   alias Customizer.Textures
   alias Customizer.SaveManager
 
+  def determine_item_template(item) do
+    if is_two_tiles?(item) do
+      "tiled_items.html"
+    else
+      "single_items.html"
+    end
+  end
+
   def proper_punctuation(item) do
     item
     |> String.split("_")
@@ -51,8 +59,22 @@ defmodule CustomizerWeb.ItemView do
     false
   end
 
+  def get_non_custom_images(category) do
+    get_images(category)
+    |> Enum.filter(fn(x) -> x.custom_category == "" end)
+  end
+
+  def select_custom_cat_images(custom_category, category) do
+    get_images(category)
+    |> Enum.filter(fn(x) -> x.custom_category == custom_category end)
+  end
+
+  def get_custom_categories(category) do
+    Textures.custom_categories(category)
+  end
+
   def get_images(category) do
-    Textures.file_list()[String.to_atom(category)]
-    |> Enum.sort
+    Textures.file_list()[category]
+    |> Enum.sort_by(fn(x) -> x.name end)
   end
 end

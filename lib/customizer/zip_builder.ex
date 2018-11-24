@@ -9,15 +9,16 @@ defmodule Customizer.ZipBuilder do
     categories = Textures.categories()
 
     items = categories
-            |> Enum.reduce([], fn (category, accum) ->
-      {:ok, items} = File.ls("#{path}/#{directory}/#{@full_path}/#{category}")
-      correct_items = items
-                      |> Enum.reduce([], fn (item, item_accum) ->
-        %{subcat: subcat_path, item: item} = build_subcat(item)
-        item_accum ++ ["#{@full_path}/#{category}#{subcat_path}/#{item}"]
-      end)
-      accum ++ correct_items
-    end)
+        |> Enum.reduce([], fn(category, accum) ->
+            item_list = File.ls("#{path}/#{directory}/#{@full_path}/#{category}")
+            |> elem(1)
+            |> Enum.reject(fn(x) -> x == ".DS_Store" end)
+            |> Enum.reduce([], fn (item, item_accum) ->
+              %{subcat: subcat_path, item: item} = build_subcat(item)
+              item_accum ++ ["#{@full_path}/#{category}#{subcat_path}/#{item}"]
+            end)
+          accum ++ item_list
+        end)
 
     blockstates = elem(File.ls("#{path}/#{directory}/assets/minecraft/blockstates"), 1)
                   |> Enum.reduce([], fn(file, file_accum) -> file_accum ++ ["assets/minecraft/blockstates/#{file}"] end)
@@ -46,12 +47,7 @@ defmodule Customizer.ZipBuilder do
 
     items
     |> Map.values
-    |> Enum.each(
-         fn (x) ->
-           [path, name, _] = String.split(x, "/")
-           move_file_to_temp(x, directory, Textures.valid_params(x))
-         end
-       )
+    |> Enum.each(fn (x) -> move_file_to_temp(x, directory, Textures.valid_params(x)) end)
 
     copy_blockstates(directory)
     copy_mcmeta(directory)
@@ -70,7 +66,7 @@ defmodule Customizer.ZipBuilder do
     File.mkdir_p("./temporary/#{directory}/#{@full_path}/#{path}#{subcat_path}")
     File.cp("#{prefix}images/#{source}", "./temporary/#{directory}/#{@full_path}/#{path}#{subcat_path}/#{item}.png")
   end
-  defp move_file_to_temp(source, directory, _), do: {:ok}
+  defp move_file_to_temp(_, _, _), do: {:ok}
 
   defp copy_blockstates(directory) do
     [prefix: prefix] = Application.get_env(:customizer, :setup)
@@ -100,20 +96,5 @@ defmodule Customizer.ZipBuilder do
   end
   defp build_subcat(item, subcat) do
     %{subcat: subcat, item: item}
-  end
-
-  defp update_clock_files(item_params, full_list) do
-    type_name = case item_params["clock_00"] do
-      "items/clock_00/" <> suffix ->  suffix
-      _ -> "default.png"
-    end
-
-    full_list
-    |> Enum.reduce(%{}, fn({key, item}, acc) ->
-      case key do
-        "clock_" <> number -> Map.put(acc, key, "items/clock_#{number}/#{type_name}")
-        _ -> Map.put(acc, key, item)
-      end
-    end)
   end
 end

@@ -1,31 +1,20 @@
 defmodule CustomizerWeb.ItemChannel do
   use Phoenix.Channel
   alias Phoenix.HTML.FormData
-  alias Customizer.Textures.Item
   alias Customizer.SaveManager
-
-  @categories ["block", "colormap", "entity", "environment", "font", "gui", "item", "map", "models", "painting", "particle"]
 
   def join("item", _message, socket) do
     {:ok, socket}
   end
 
   def handle_in("images", %{"category" => category}, socket) do
-    changeset = Item.changeset(%Item{})
-
-    f =
-      %Item{}
-      |> Item.changeset()
-      |> FormData.to_form([])
-
     CustomizerWeb.ItemView
-    |> Phoenix.View.render_to_string("category.html", category: category, conn: socket, changeset: changeset, f: f)
+    |> Phoenix.View.render_to_string("category.html", category: category, conn: socket)
     |> push_html("item_response", category, socket)
   end
   def handle_in("get_selections", %{"keyword" => keyword}, socket) do
     results = SaveManager.get_selections(keyword)
-    socket = assign(socket, :keyword, keyword)
-    push_results_of_load(socket, results)
+    push_results_of_load(socket, keyword, results)
 
     {:noreply, socket}
   end
@@ -41,10 +30,13 @@ defmodule CustomizerWeb.ItemChannel do
     {:noreply, socket}
   end
 
-  def push_results_of_load(socket, {:ok, selections}) do
+  def push_results_of_load(socket, keyword, {:ok, selections}) do
+    #only assign this if we're successful, otherwise bad things happen later
+    socket = assign(socket, :keyword, keyword)
+
     push(socket, "load_response", %{selections: selections, message: "Load successful!"})
   end
-  def push_results_of_load(socket, {:error, message}) do
+  def push_results_of_load(socket, _, {:error, message}) do
     push(socket, "load_response", %{selections: [], message: message})
   end
 

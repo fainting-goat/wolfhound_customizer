@@ -5,11 +5,11 @@
 
       <%= cond do %>
         <%= preload?(@conn) && selected_file?(@category, @item, file, @conn) -> %>
-            <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}", checked: "checked" %>
+            <%= radio_button :item, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}", checked: "checked" %>
           <%= !preload?(@conn) && default?(file) -> %>
-            <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}", checked: "checked" %>
+            <%= radio_button :item, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}", checked: "checked" %>
         <%= true -> %>
-          <%= radio_button @f, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}" %>
+          <%= radio_button :item, String.to_atom("#{@category}_#{@item}"), "#{@category}/#{@item}/#{file}" %>
       <% end %>
 
       <img src="<%= static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>">

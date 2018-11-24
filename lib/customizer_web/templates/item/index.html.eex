@@ -1,13 +1,8 @@
 <body>
   <div class="col-sm-2 lightBox">
-    <%= render "save_selections.html", changeset: @changeset, conn: @conn%>
+    <%= render "save_selections.html", conn: @conn%>
   </div>
   <div class="col-sm-10">
-    <div class="lightBox">
-      <p><b>Updated for 1.13!</b></p>
-      <p>I'll be honest.  I didn't test this very well.  Please let me know if I missed something.</p>
-    </div>
-
     <div class="lightBox">
       <p>The Wolfhound Customizer is a pet project I use to practice Elixir.  It also provides a useful service by letting
       you build your own custom version of Wolfhound!
@@ -40,13 +35,15 @@
 
     <hr>
 
-    <%= form_for @changeset, item_path(@conn, :create), fn f -> %>
+    <%= form_for @conn, item_path(@conn, :create), fn f -> %>
           <%= for category <- @categories do %>
             <div><label class="expand" id="<%= category %>"><%= proper_punctuation(category) %></label></div>
           <% end %>
       <div><%= submit "Create", class: "btn btn-primary" %></div>
     <% end %>
+
     <hr>
+
     <div class="lightBox">
       If you don't want to create a pack now, enter a keyword to access your pack later.
       <p><input type="text" id="keyword"></p>
