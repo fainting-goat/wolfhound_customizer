@@ -14,7 +14,7 @@ defmodule CustomizerWeb.ItemChannel do
   end
   def handle_in("get_selections", %{"keyword" => keyword}, socket) do
     results = SaveManager.get_selections(keyword)
-    push_results_of_load(socket, keyword, results)
+    socket = push_results_of_load(socket, keyword, results)
 
     {:noreply, socket}
   end
@@ -35,9 +35,11 @@ defmodule CustomizerWeb.ItemChannel do
     socket = assign(socket, :keyword, keyword)
 
     push(socket, "load_response", %{selections: selections, message: "Load successful!"})
+    socket
   end
   def push_results_of_load(socket, _, {:error, message}) do
     push(socket, "load_response", %{selections: [], message: message})
+    socket
   end
 
   def push_results_of_save(socket, {:ok, message}) do

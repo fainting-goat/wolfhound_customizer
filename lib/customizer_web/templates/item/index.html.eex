@@ -1,7 +1,7 @@
 <body>
   <div class="row">
     <div class="column lightBox">
-      <%= render "save_selections.html", changeset: @changeset, conn: @conn%>
+      <%= render "save_selections.html", conn: @conn%>
     </div>
     <div class="column column-75">
       <div class="lightBox">
@@ -51,7 +51,7 @@
 
   <%= form_for @conn, Routes.item_path(@conn, :create), fn f -> %>
     <%= for category <- @categories do %>
-      <label for="<%= category %>" class="expand" id="<%= category %>"><%= proper_punctuation(category) %></label>
+      <label for="<%= category %>" class="expand mainHeader" id="<%= category %>"><%= proper_punctuation(category) %></label>
       <div id="<%= category %>_div" class="row expandContent"></div>
     <% end %>
 

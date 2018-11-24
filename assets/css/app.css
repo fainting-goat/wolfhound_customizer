@@ -119,10 +119,11 @@ img {
     padding: 4px 11px;
     font-size: 10px;
     cursor: pointer;
-    margin-left: 10px
+    margin-left: 10px;
+    width: 50%;
 }
 
-.expand {
+.mainHeader {
     display: inline-block;
     background-color: #9d9d9d;
     padding: 4px 11px;

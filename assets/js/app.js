@@ -35,7 +35,7 @@ $('.flavorButton').click(function () {
     })
 });
 
-$('.expand').click(function () {
+$('body').on("click", ".expand", function () {
     let category = $(this).attr("for");
     let categoryDiv = $("#" + category + "_div");
 
@@ -48,6 +48,7 @@ $('.expand').click(function () {
         categoryDiv.addClass("expanded");
     }
 });
+
 
 $('#createButton').click(function () {
     $('#createButton').enabled = false;
