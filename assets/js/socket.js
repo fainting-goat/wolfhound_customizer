@@ -33,7 +33,7 @@ $('#load').click(function () {
 });
 
 itemChannel.on('item_response', payload => {
-    let currentCategory = $(".expand#" + payload.category);
+    let currentCategory = $("#" + payload.category + "_div");
     currentCategory.empty();
     currentCategory.replaceWith(payload.html);
 });

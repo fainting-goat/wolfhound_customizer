@@ -1,29 +1,25 @@
-<div id="expanded_<%= @category %>_div" class="header_div" data-toggle="collapse" data-target="#<%= @category %>_div" class aria-expanded="true">
-  <div><label class="expanded"><%= proper_punctuation(@category) %></label></div>
-</div>
-<div id="<%= @category %>_div" class="collapse show">
+<div id="<%= @category %>_div" class="row expanded">
+  <div class="container">
+    <%= for custom_category <- get_custom_categories(@category)  do %>
+      <label class="expand expanded_custom" for="<%= custom_category %>"><%= proper_punctuation(custom_category) %></label>
 
-  <%= for custom_category <- get_custom_categories(@category)  do %>
-    <div id="expanded_div" class="header_div" data-toggle="collapse" data-target="#<%= custom_category %>_div" class aria-expanded="false">
-      <div><label class="expanded_custom"><%= proper_punctuation(custom_category) %></label></div>
-    </div>
+      <div id="<%= custom_category %>_div" class="row collapsed">
+        <div class="container">
+          <%= for sub_category <- select_custom_cat_images(custom_category, @category)  do %>
+            <%= render determine_item_template(sub_category.name), item: sub_category.name, files: sub_category.files, category: @category, conn: @conn%>
+          <% end %>
 
-    <div id="<%= custom_category %>_div" class="collapse">
-      <%= for sub_category <- select_custom_cat_images(custom_category, @category)  do %>
-        <div>
-          <%= render determine_item_template(sub_category.name), item: sub_category.name, files: sub_category.files, category: @category, conn: @conn%>
+          <div id="<%= custom_category %>_div" class="row">
+            <label class="expand expanded_custom_footer expanded_custom" for="<%= custom_category %>">Collapse <%= proper_punctuation(custom_category) %></label>
+          </div>
         </div>
-      <% end %>
-
-      <div id="expanded_div" class="header_div" data-toggle="collapse" data-target="#<%= custom_category %>_div" class aria-expanded="false">
-        <div><label class="expanded_custom_footer">Collapse <%= proper_punctuation(custom_category) %></label></div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <%= for sub_category <- get_non_custom_images(@category)  do %>
-    <div>
-      <%= render determine_item_template(sub_category.name), item: sub_category.name, files: sub_category.files, category: @category, conn: @conn%>
-    </div>
-  <% end %>
+    <%= for sub_category <- get_non_custom_images(@category)  do %>
+      <div>
+        <%= render determine_item_template(sub_category.name), item: sub_category.name, files: sub_category.files, category: @category, conn: @conn%>
+      </div>
+    <% end %>
+  </div>
 </div>

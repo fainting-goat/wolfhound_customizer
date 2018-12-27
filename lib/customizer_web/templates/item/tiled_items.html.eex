@@ -1,6 +1,9 @@
 <%= if top_file?(@item) do %>
-  <label class="subcat"><%= proper_punctuation_for_tiled(@item) %></label>
-  <div>
+  <div class="row">
+      <label class="subcat"><%= proper_punctuation(@item) %></label>
+  </div>
+
+  <div class="row">
     <%= for file <- @files do %>
       <label id="<%= @item %>">
 
@@ -14,9 +17,9 @@
         <% end %>
 
         <div class="doubleTileDiv">
-          <img src="<%= static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>">
+          <img src="<%= Routes.static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>">
           <br>
-          <img src="<%= static_path(@conn, "/images/#{@category}/#{lower_equiv(@item)}/#{file}") %>">
+          <img src="<%= Routes.static_path(@conn, "/images/#{@category}/#{lower_equiv(@item)}/#{file}") %>">
         </div>
       </label>
     <% end %>
