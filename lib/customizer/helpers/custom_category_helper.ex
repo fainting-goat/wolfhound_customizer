@@ -119,7 +119,7 @@ defmodule Customizer.CustomCategoryHelper do
       |> Map.put("#{color}_stained_glass_pane_top", "glass")
       |> Map.put("#{color}_shulker_box", "shulker_box")
       |> Map.put("sub_bed_#{color}", "beds")
-      |> Map.put("sub_llama_sub_decor_decor_#{color}", "llama_decor")
+      |> Map.put("sub_llama_sub_decor_#{color}", "llama_decor")
       |> Map.put("sub_shulker_shulker_#{color}", "shulker")
       |> Map.put("#{color}_dye", "dye")
     end)
