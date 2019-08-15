@@ -16,6 +16,11 @@
       <% end %>
 
         <img src="<%= Routes.static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>">
+
+        <br>
+        <%= if Enum.member?(["gui", "entity", "models", "painting"], @category) do %>
+          <a href="<%= Routes.static_path(@conn, "/images/#{@category}/#{@item}/#{file}") %>" data-lightbox="image-<%= "#{@category}-#{@item}" %>"><font class="small-link">enlarge</font></a>
+        <% end %>
       </label>
   <% end %>
 </div>

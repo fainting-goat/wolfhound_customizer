@@ -6,6 +6,7 @@ services:
     volumes:
       - "$HOME/.ssh:/tmp/host-ssh"
       - "$PWD:/app"
+      - "/etc/letsencrypt:/etc/letsencrypt"
     environment:
       MIX_ENV: prod
       PORT: 4012
