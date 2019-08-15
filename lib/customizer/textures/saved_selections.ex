@@ -45,12 +45,15 @@ defmodule Customizer.SavedSelections do
   defp chunk_selections(selections) do
     selections
     |> Enum.reduce(%{}, fn(item, acc) ->
-      [group_key, item_key, item_value] = String.split(item, "/")
-
-      if Map.has_key?(acc, group_key) do
-        put_in(acc, [group_key, item_key], item_value)
-      else
-        Map.put(acc, group_key, %{item_key => item_value})
+      case item do
+        "" -> acc
+        nil -> acc
+        item -> [group_key, item_key, item_value] = String.split(item, "/")
+          if Map.has_key?(acc, group_key) do
+            put_in(acc, [group_key, item_key], item_value)
+          else
+            Map.put(acc, group_key, %{item_key => item_value})
+          end
       end
     end)
   end
