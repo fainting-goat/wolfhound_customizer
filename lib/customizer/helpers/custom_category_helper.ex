@@ -35,6 +35,7 @@ defmodule Customizer.CustomCategoryHelper do
       |> Map.put("stripped_#{tree}_log_top", "trees")
       |> Map.put("stripped_#{tree}_log", "trees")
       |> Map.put("sub_boat_#{tree}", "boats")
+      |> Map.put("sub_signs_#{tree}", "signs")
     end)
   end
 
@@ -42,6 +43,11 @@ defmodule Customizer.CustomCategoryHelper do
     %{
       "allium" => "plants",
       "azure_bluet" => "plants",
+      "bamboo_large_leaves" => "plants",
+      "bamboo_singleleaf" => "plants",
+      "bamboo_small_leaves" => "plants",
+      "bamboo_stage0" => "plants",
+      "bamboo_stalk" => "plants",
       "beetroots_stage0" => "plants",
       "beetroots_stage1" => "plants",
       "beetroots_stage2" => "plants",
@@ -60,12 +66,14 @@ defmodule Customizer.CustomCategoryHelper do
       "cocoa_stage0" => "plants",
       "cocoa_stage1" => "plants",
       "cocoa_stage2" => "plants",
+      "cornflower" => "plants",
       "dandelion" => "plants",
       "dead_bush" => "plants",
       "grass" => "plants",
       "jack_o_lantern" => "plants",
       "lilac_top" => "plants",
       "lilac_bottom" => "plants",
+      "lily_of_the_valley" => "plants",
       "melon_side" => "plants",
       "melon_top" => "plants",
       "mushroom_stem" => "plants",
@@ -86,6 +94,10 @@ defmodule Customizer.CustomCategoryHelper do
       "red_tulip" => "plants",
       "rose_bush_top" => "plants",
       "rose_bush_bottom" => "plants",
+      "sweet_berry_bush_stage0" => "plants",
+      "sweet_berry_bush_stage1" => "plants",
+      "sweet_berry_bush_stage2" => "plants",
+      "sweet_berry_bush_stage3" => "plants",
       "sugar_cane" => "plants",
       "sunflower_back" => "plants",
       "sunflower_front" => "plants",
@@ -102,7 +114,8 @@ defmodule Customizer.CustomCategoryHelper do
       "wheat_stage5" => "plants",
       "wheat_stage6" => "plants",
       "wheat_stage7" => "plants",
-      "white_tulip" => "plants"
+      "white_tulip" => "plants",
+      "wither_rose" => "plants"
     }
   end
 
@@ -152,16 +165,42 @@ defmodule Customizer.CustomCategoryHelper do
       "sub_chest_normal_double" => "chests",
       "sub_chest_trapped" => "chests",
       "sub_chest_trapped_double" => "chests",
-      "sub_villager_butcher" => "villagers",
-      "sub_villager_librarian" => "villagers",
-      "sub_villager_priest" => "villagers",
-      "sub_villager_farmer" => "villagers",
-      "sub_villager_smith" => "villagers",
+      "sub_villager_sub_profession_armorer" => "villagers",
+      "sub_villager_sub_profession_butcher" => "villagers",
+      "sub_villager_sub_profession_cartographer" => "villagers",
+      "sub_villager_sub_profession_cleric" => "villagers",
+      "sub_villager_sub_profession_librarian" => "villagers",
+      "sub_villager_sub_profession_fisherman" => "villagers",
+      "sub_villager_sub_profession_fletcher" => "villagers",
+      "sub_villager_sub_profession_leatherworker" => "villagers",
+      "sub_villager_sub_profession_mason" => "villagers",
+      "sub_villager_sub_profession_nitwit" => "villagers",
+      "sub_villager_sub_profession_shepherd" => "villagers",
+      "sub_villager_sub_profession_toolsmith" => "villagers",
+      "sub_villager_sub_profession_weaponsmith" => "villagers",
+      "sub_villager_sub_profession_priest" => "villagers",
+      "sub_villager_sub_profession_farmer" => "villagers",
+      "sub_villager_sub_profession_smith" => "villagers",
+      "sub_villager_sub_type_desert" => "villagers",
+      "sub_villager_sub_type_jungle" => "villagers",
+      "sub_villager_sub_type_plains" => "villagers",
+      "sub_villager_sub_type_savanna" => "villagers",
+      "sub_villager_sub_type_snow" => "villagers",
+      "sub_villager_sub_type_swamp" => "villagers",
+      "sub_villager_sub_type_taiga" => "villagers",
+      "sub_villager_sub_profession_level_diamond" => "villagers",
+      "sub_villager_sub_profession_level_emerald" => "villagers",
+      "sub_villager_sub_profession_level_stone" => "villagers",
+      "sub_villager_sub_profession_level_iron" => "villagers",
+      "sub_villager_sub_profession_level_gold" => "villagers",
       "sub_villager_villager" => "villagers",
       "sub_illager_evoker" => "illager",
       "sub_illager_vex" => "illager",
       "sub_illager_vex_charging" => "illager",
       "sub_illager_vindicator" => "illager",
+      "sub_illager_pillager" => "illager",
+      "sub_illager_illusioner" => "illager",
+      "sub_illager_ravager" => "illager",
       "sub_skeleton_skeleton" => "skeletons",
       "sub_skeleton_stray" => "skeletons",
       "sub_skeleton_stray_overlay" => "skeletons",
@@ -171,19 +210,38 @@ defmodule Customizer.CustomCategoryHelper do
       "sub_zombie_husk" => "zombies",
       "sub_zombie_zombie" => "zombies",
       "zombie_pigman" => "zombies",
-      "sub_zombie_villager_zombie_butcher" => "zombies",
-      "sub_zombie_villager_zombie_farmer" => "zombies",
-      "sub_zombie_villager_zombie_librarian" => "zombies",
-      "sub_zombie_villager_zombie_priest" => "zombies",
-      "sub_zombie_villager_zombie_smith" => "zombies",
+      "sub_zombie_villager_sub_profession_armorer" => "zombies",
+      "sub_zombie_villager_sub_profession_butcher" => "zombies",
+      "sub_zombie_villager_sub_profession_cartographer" => "zombies",
+      "sub_zombie_villager_sub_profession_cleric" => "zombies",
+      "sub_zombie_villager_sub_profession_librarian" => "zombies",
+      "sub_zombie_villager_sub_profession_fisherman" => "zombies",
+      "sub_zombie_villager_sub_profession_fletcher" => "zombies",
+      "sub_zombie_villager_sub_profession_leatherworker" => "zombies",
+      "sub_zombie_villager_sub_profession_mason" => "zombies",
+      "sub_zombie_villager_sub_profession_nitwit" => "zombies",
+      "sub_zombie_villager_sub_profession_shepherd" => "zombies",
+      "sub_zombie_villager_sub_profession_toolsmith" => "zombies",
+      "sub_zombie_villager_sub_profession_weaponsmith" => "zombies",
+      "sub_zombie_villager_sub_profession_priest" => "zombies",
+      "sub_zombie_villager_sub_profession_farmer" => "zombies",
+      "sub_zombie_villager_sub_profession_smith" => "zombies",
+      "sub_zombie_villager_sub_type_desert" => "zombies",
+      "sub_zombie_villager_sub_type_jungle" => "zombies",
+      "sub_zombie_villager_sub_type_plains" => "zombies",
+      "sub_zombie_villager_sub_type_savanna" => "zombies",
+      "sub_zombie_villager_sub_type_snow" => "zombies",
+      "sub_zombie_villager_sub_type_swamp" => "zombies",
+      "sub_zombie_villager_sub_type_taiga" => "zombies",
+      "sub_zombie_villager_sub_profession_level_diamond" => "zombies",
+      "sub_zombie_villager_sub_profession_level_emerald" => "zombies",
+      "sub_zombie_villager_sub_profession_level_stone" => "zombies",
+      "sub_zombie_villager_sub_profession_level_iron" => "zombies",
+      "sub_zombie_villager_sub_profession_level_gold" => "zombies",
       "sub_zombie_villager_zombie_villager" => "zombies",
-      "cocoa_beans" => "dye",
-      "lapis_lazuli" => "dye",
       "rose_red" => "dye",
-      "ink_sac" => "dye",
       "cactus_green" => "dye",
       "dandelion_yellow" => "dye",
-      "bone_meal" => "dye",
       "book" => "books",
       "enchanted_book" => "books",
       "knowledge_book" => "books",
@@ -207,6 +265,8 @@ defmodule Customizer.CustomCategoryHelper do
       "cooked_mutton" => "food",
       "cooked_rabbit" => "food",
       "cooked_salmon" => "food",
+      "suspicious_stew" => "food",
+      "sweet_berries" => "food",
       "cookie" => "food",
       "glistering_melon_slice" => "food",
       "golden_apple" => "food",
@@ -241,7 +301,8 @@ defmodule Customizer.CustomCategoryHelper do
       "music_disc_stal" => "music_disks",
       "music_disc_strad" => "music_disks",
       "music_disc_wait" => "music_disks",
-      "music_disc_ward" => "music_disks"
+      "music_disc_ward" => "music_disks",
+      "sub_llama_sub_decor_trader_llama" => "llama_decor"
     }
   end
 
@@ -353,6 +414,12 @@ defmodule Customizer.CustomCategoryHelper do
     |> Map.put("leather_helmet_overlay", "weapons_and_armor")
     |> Map.put("leather_leggings_overlay", "weapons_and_armor")
     |> Map.put("trident", "weapons_and_armor")
+    |> Map.put("crossbow_arrow", "weapons_and_armor")
+    |> Map.put("crossbow_firework", "weapons_and_armor")
+    |> Map.put("crossbow_pulling0", "weapons_and_armor")
+    |> Map.put("crossbow_pulling1", "weapons_and_armor")
+    |> Map.put("crossbow_pulling2", "weapons_and_armor")
+    |> Map.put("crossbow_standby", "weapons_and_armor")
   end
 
   def custom_category_names() do
@@ -360,7 +427,7 @@ defmodule Customizer.CustomCategoryHelper do
     %{
       "block" => ["trees", "plants", "doors", "concrete", "terracotta", "shulker_box", "glass", "wool",
       "coral", "redstone"],
-      "entity" => ["beds", "shulker", "chests", "boats", "llama_decor", "horses", "cats", "parrots", "wolves", "skeletons", "zombies", "illager", "villagers"],
+      "entity" => ["beds", "shulker", "chests", "boats", "signs", "llama_decor", "horses", "cats", "parrots", "wolves", "skeletons", "zombies", "illager", "villagers"],
       "item" => ["dye", "books", "buckets", "music_disks", "food", "weapons_and_armor", "tools"]
     }
 

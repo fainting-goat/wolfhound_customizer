@@ -1,0 +1,7 @@
+/_build
+/priv/static
+/deps
+.idea/
+/assets/node_modules
+
+.DS_Store

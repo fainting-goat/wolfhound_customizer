@@ -8,7 +8,9 @@ defmodule Customizer.SaveManager do
   end
 
   def init(state) do
-    state = load_state_from_file()
+    state = File.ls("./temporary")
+    |> elem(1)
+    |> load_state_from_file()
     Process.flag(:trap_exit, true)
     {:ok, state}
   end
@@ -23,9 +25,9 @@ defmodule Customizer.SaveManager do
     state
   end
 
-  def load_state_from_file() do
-    File.ls("./temporary")
-    |> elem(1)
+  def load_state_from_file(:enoent), do: :ok
+  def load_state_from_file(file) do
+    file
     |> Enum.reject(fn(x) -> !String.contains?(x, ".txt") end)
     |> Enum.reduce(%{}, fn(file,acc) ->
       {keyword, pid} = load_file_to_process(file)

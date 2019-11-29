@@ -325,6 +325,15 @@ img {
     vertical-align: top;
 }
 
+#campfire_fire {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
 #magma {
     width: 66px;
     height: 66px;
