@@ -89,6 +89,12 @@ defmodule Customizer.ZipBuilder do
   defp build_subcat("sub_creative_inventory_" <> item, subcat) do
     %{subcat: "#{subcat}/creative_inventory", item: item}
   end
+  defp build_subcat("sub_profession_level_" <> item, subcat) do
+    %{subcat: "#{subcat}/profession_level", item: item}
+  end
+  defp build_subcat("sub_zombie_villager_" <> item, subcat) do
+    build_subcat(item, "#{subcat}/zombie_villager")
+  end
   defp build_subcat("sub_" <> item, subcat) do
     [subcat_dir | pieces] = String.split(item, "_")
     item_name = Enum.join(pieces, "_")
