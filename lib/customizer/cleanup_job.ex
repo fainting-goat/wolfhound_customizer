@@ -1,7 +1,7 @@
 defmodule Customizer.CleanupJob do
   use GenServer
 
-  def start_link do
+  def start_link(_params) do
     GenServer.start_link(__MODULE__, %{})
   end
 
@@ -13,7 +13,7 @@ defmodule Customizer.CleanupJob do
   def handle_info(:work, state) do
     {:ok, dir_contents} = File.ls("./")
 
-    files = dir_contents
+    dir_contents
     |> Enum.filter(fn(x) -> String.match?(x, ~r/.zip$/) end)
     |> Enum.each(fn(x) -> File.rm(x) end)
 

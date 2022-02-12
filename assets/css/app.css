@@ -1,6 +1,7 @@
 /* This file is for your main application css. */
 @import "./phoenix.css";
-@import "~lightbox2/dist/css/lightbox.css";
+/*@import "~lightbox2/dist/css/lightbox.css";*/
+/*@import "~lightbox2";*/
 /*@import '~bootstrap/dist/css/bootstrap.css';*/
 
 header {
@@ -344,6 +345,69 @@ img {
 }
 
 #prismarine_rough {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#campfire_fire {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#campfire_log_lit {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#respawn_anchor_top {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#soul_campfire_fire {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#soul_campfire_log_lit {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#soul_fire_0 {
+    width: 66px;
+    height: 66px;
+    overflow: hidden;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#soul_fire_1 {
     width: 66px;
     height: 66px;
     overflow: hidden;

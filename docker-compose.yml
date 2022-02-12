@@ -4,8 +4,9 @@ services:
   app:
     build: .
     volumes:
-      - "$HOME/.ssh:/tmp/host-ssh"
-      - "$PWD:/app"
+#      - "$HOME/.ssh:/tmp/host-ssh"
+#      - "$PWD:/app"
+      - "D:/Documents/Code Projects/wolfhound_customizer:/app"
     environment:
       MIX_ENV: dev
     ports:
@@ -14,8 +15,8 @@ services:
   test:
     build: .
     volumes:
-      - "$HOME/.ssh:/tmp/host-ssh"
-      - "$PWD:/app"
+#      - "$HOME/.ssh:/tmp/host-ssh"
+      - "D:/Documents/Code Projects/wolfhound_customizer:/app"
     environment:
       MIX_ENV: test
     command: ["mix", "test"]

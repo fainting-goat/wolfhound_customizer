@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :customizer, :setup,
   prefix: "./priv/static/"

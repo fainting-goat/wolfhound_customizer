@@ -3,13 +3,10 @@ defmodule CustomizerWeb.ItemController do
 
   import Customizer.TiledItems
 
-  alias Customizer.Textures.Item
   alias Customizer.Textures
   alias Customizer.ZipBuilder
 
-  @full_path "assets/minecraft/textures"
-
-  def index(conn, params) do
+  def index(conn, _params) do
     render conn, "index.html", categories: categories()
   end
 
@@ -33,10 +30,10 @@ defmodule CustomizerWeb.ItemController do
   def create(conn, %{}) do
     conn
     |> put_flash(:error, "Please make some selections before creating a texture pack.")
-    |> render "index.html", categories: categories()
+    |> render("index.html", categories: categories())
   end
 
-  def create(conn) do
+  def create(_conn) do
     render("index.html")
   end
 
