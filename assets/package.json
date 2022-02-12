@@ -1,9 +1,11 @@
 {
-  "repository": {},
-  "license": "MIT",
+  "name": "wolfhound_assets",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "deploy": "webpack --mode production",
-    "watch": "webpack --mode development --watch"
+    "build": "node esbuild.js",
+    "deploy": "node esbuild.js --deploy",
+    "watch": "node esbuild.js --watch"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",

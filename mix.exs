@@ -46,8 +46,7 @@ defmodule Customizer.Mixfile do
       {:distillery, "~> 1.5", runtime: false},
       {:uuid, "~> 1.1"},
       {:jason, "~> 1.0"},
-      {:double, "~> 0.6.2", only: :test},
-      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev}
+      {:double, "~> 0.6.2", only: :test}
     ]
   end
 
@@ -62,7 +61,7 @@ defmodule Customizer.Mixfile do
 #      test: "test --no-start"
         "assets.deploy": [
             "cmd --cd assets npm run deploy",
-            "esbuild default --minify",
+            "cmd npm --prefix assets run deploy",
             "phx.digest"
       ]
     ]
