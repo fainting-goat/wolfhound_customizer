@@ -5,7 +5,7 @@ defmodule Customizer.Textures do
 
   import Customizer.CustomCategoryHelper
 
-  def start_link() do
+  def start_link(_params) do
     GenServer.start_link(__MODULE__, %{}, name: :file_manager)
   end
 

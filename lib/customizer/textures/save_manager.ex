@@ -3,11 +3,11 @@ defmodule Customizer.SaveManager do
 
   alias Customizer.SavedSelections
 
-  def start_link() do
+  def start_link(_params) do
     GenServer.start_link(__MODULE__, %{}, name: :saved_selections)
   end
 
-  def init(state) do
+  def init(_state) do
     state = load_state_from_file()
     Process.flag(:trap_exit, true)
     {:ok, state}

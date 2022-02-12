@@ -1,0 +1,6 @@
+FROM cimg/elixir:1.13.1-node
+
+WORKDIR /app
+
+RUN ["mix", "local.hex", "--force"]
+RUN ["mix", "local.rebar", "--force"]

@@ -33,8 +33,8 @@ defmodule Customizer.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.0"},
-      {:phoenix_pubsub, "~> 1.0"},
+      {:phoenix, "~> 1.6.0"},
+      {:phoenix_pubsub, "~> 2.0"},
       {:ecto_sql, "~> 3.0"},
       {:phoenix_ecto, "~> 4.0"},
       {:postgrex, ">= 0.0.0"},
@@ -46,7 +46,8 @@ defmodule Customizer.Mixfile do
       {:distillery, "~> 1.5", runtime: false},
       {:uuid, "~> 1.1"},
       {:jason, "~> 1.0"},
-      {:double, "~> 0.6.2", only: :test}
+      {:double, "~> 0.6.2", only: :test},
+      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev}
     ]
   end
 
@@ -59,6 +60,11 @@ defmodule Customizer.Mixfile do
   defp aliases do
     [
 #      test: "test --no-start"
+        "assets.deploy": [
+            "cmd --cd assets npm run deploy",
+            "esbuild default --minify",
+            "phx.digest"
+      ]
     ]
   end
 end

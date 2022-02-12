@@ -108,7 +108,7 @@ defmodule Customizer.CustomCategoryHelper do
 
   def color_map() do
     @colors
-    |> Enum.reduce(tree_map, fn(color, accum) ->
+    |> Enum.reduce(tree_map(), fn(color, accum) ->
       accum
       |> Map.put("#{color}_wool", "wool")
       |> Map.put("#{color}_concrete", "concrete")
@@ -127,7 +127,7 @@ defmodule Customizer.CustomCategoryHelper do
 
   def coral_map() do
     @corals
-    |> Enum.reduce(color_map, fn(coral, accum) ->
+    |> Enum.reduce(color_map(), fn(coral, accum) ->
       accum
       |> Map.put("#{coral}_coral", "coral")
       |> Map.put("#{coral}_coral_block", "coral")

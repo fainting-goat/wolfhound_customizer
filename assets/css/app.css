@@ -1,6 +1,7 @@
 /* This file is for your main application css. */
 @import "./phoenix.css";
-@import "~lightbox2/dist/css/lightbox.css";
+/*@import "~lightbox2/dist/css/lightbox.css";*/
+/*@import "~lightbox2";*/
 /*@import '~bootstrap/dist/css/bootstrap.css';*/
 
 header {
