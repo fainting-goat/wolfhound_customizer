@@ -110,6 +110,8 @@ defmodule Customizer.Textures do
     |> elem(1)
     |> remove_system_files
     |> Enum.reject(fn(image_name) -> hide_clock_files(image_name) end)
+    |> Enum.reject(fn(image_name) -> hide_compass_files(image_name) end)
+    |> Enum.reject(fn(image_name) -> hide_recovery_compass_files(image_name) end)
     |> Enum.reject(fn(image_name) -> only_one_file("#{path}/#{image_name}") end)
     |> Enum.reduce([], fn(sub_cat, accum) ->
       [%SubCategory{name: sub_cat, custom_category: sub_category_name(sub_cat), files: collect_files("#{path}/#{sub_cat}")} | accum]
@@ -147,6 +149,14 @@ defmodule Customizer.Textures do
   defp hide_clock_files("clock_00"), do: false
   defp hide_clock_files("clock" <> _), do: true
   defp hide_clock_files(_), do: false
+
+  defp hide_compass_files("compass_00"), do: false
+  defp hide_compass_files("compass" <> _), do: true
+  defp hide_compass_files(_), do: false
+
+  defp hide_recovery_compass_files("recovery_compass_00"), do: false
+  defp hide_recovery_compass_files("recovery_compass" <> _), do: true
+  defp hide_recovery_compass_files(_), do: false
 
   defp sub_category_name(sub_cat) do
     if Map.has_key?(custom_category_map(), sub_cat) do

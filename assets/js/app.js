@@ -11,8 +11,8 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
-import "lightbox2"
+// import "phoenix_html"
+import lightbox2 from "lightbox2"
 
 // Import local files
 //
@@ -22,7 +22,7 @@ import "lightbox2"
 import css from "../css/app.css"
 import socket from "./socket"
 
-import $ from "jquery"
+import jquery from "jquery"
 
 $('.flavorButton').click(function () {
     let flavor = this.id;

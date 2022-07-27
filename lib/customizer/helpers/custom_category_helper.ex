@@ -3,7 +3,7 @@
 
 defmodule Customizer.CustomCategoryHelper do
   #I am not typing this stuff over and over
-  @trees ["birch", "acacia", "oak", "dark_oak", "spruce", "jungle"]
+  @trees ["birch", "acacia", "oak", "dark_oak", "spruce", "jungle", "mangrove"]
   @colors ["black", "blue", "white", "light_gray", "gray", "yellow", "red", "green", "lime", "light_blue", "cyan",
     "orange", "magenta", "brown", "purple", "pink"]
   @corals ["brain", "bubble", "fire", "horn", "tube"]
@@ -36,6 +36,7 @@ defmodule Customizer.CustomCategoryHelper do
       |> Map.put("stripped_#{tree}_log_top", "trees")
       |> Map.put("stripped_#{tree}_log", "trees")
       |> Map.put("sub_boat_#{tree}", "boats")
+      |> Map.put("sub_chest_boat_#{tree}", "boats")
     end)
     |> Map.put("azalea_leaves", "trees")
     |> Map.put("flowering_azalea_leaves", "trees")
@@ -200,6 +201,10 @@ defmodule Customizer.CustomCategoryHelper do
       "sub_chest_normal_double" => "chests",
       "sub_chest_trapped" => "chests",
       "sub_chest_trapped_double" => "chests",
+      "sub_chest_normal_left" => "chests",
+      "sub_chest_normal_right" => "chests",
+      "sub_chest_trapped_left" => "chests",
+      "sub_chest_trapped_right" => "chests",
       "sub_villager_butcher" => "villagers",
       "sub_villager_librarian" => "villagers",
       "sub_villager_priest" => "villagers",
@@ -339,6 +344,8 @@ defmodule Customizer.CustomCategoryHelper do
       "milk_bucket" => "buckets",
       "lava_bucket" => "buckets",
       "cod_bucket" => "buckets",
+      "axolotl_bucket" => "buckets",
+      "tadpole_bucket" => "buckets",
       "bucket" => "buckets",
       "music_disc_11" => "music_disks",
       "music_disc_13" => "music_disks",

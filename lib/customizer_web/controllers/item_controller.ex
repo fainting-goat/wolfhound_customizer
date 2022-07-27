@@ -17,6 +17,7 @@ defmodule CustomizerWeb.ItemController do
 
     complete_list = Map.merge(Textures.default_list, sanitized_list)
     |> update_clock_files(item_params)
+    |> update_compass_files(item_params)
 
     {:ok, temp_dir} = ZipBuilder.create_temp_directory(complete_list)
     {:ok, zip} = ZipBuilder.create_zip(temp_dir)
@@ -49,6 +50,36 @@ defmodule CustomizerWeb.ItemController do
     |> Enum.reduce(%{}, fn({key, item}, acc) ->
       case key do
         "clock_" <> number -> Map.put(acc, key, "items/clock_#{number}/#{type_name}")
+        _ -> Map.put(acc, key, item)
+      end
+    end)
+  end
+
+  defp update_compass_files(full_list, item_params) do
+    type_name = case item_params["clock_00"] do
+      "items/compass_00/" <> suffix ->  suffix
+      _ -> "default.png"
+    end
+
+    full_list
+    |> Enum.reduce(%{}, fn({key, item}, acc) ->
+      case key do
+        "compass_" <> number -> Map.put(acc, key, "items/compass_#{number}/#{type_name}")
+        _ -> Map.put(acc, key, item)
+      end
+    end)
+  end
+
+  defp update_recovery_compass_files(full_list, item_params) do
+    type_name = case item_params["clock_00"] do
+      "items/recovery_compass_00/" <> suffix ->  suffix
+      _ -> "default.png"
+    end
+
+    full_list
+    |> Enum.reduce(%{}, fn({key, item}, acc) ->
+      case key do
+        "recovery_compass_" <> number -> Map.put(acc, key, "items/recovery_compass_#{number}/#{type_name}")
         _ -> Map.put(acc, key, item)
       end
     end)
